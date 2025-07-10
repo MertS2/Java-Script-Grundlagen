@@ -9,3 +9,8 @@
     height: 200px;
     background-color: yellow;
 }
+
+
+.d_none {
+    display: none;
+}

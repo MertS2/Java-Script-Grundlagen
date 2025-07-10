@@ -45,4 +45,13 @@ console.log(document.getElementById('inputfield_test').value);
 
 
 
-/* Mit set Atribut kann man die Atribute ändern, wie z,b die ID oder den typ von einem input usw. */
+/* Mit set Atribut kann man die Atribute ändern, wie z,b die ID oder den typ von einem input usw. 
+
+ Weiteren Lesestoff findest du bei w3schools: https://www.w3schools.com/js/js_htmldom.asp
+Etwas komplexeren Lesestoff findest du bei SELFHTML: https://wiki.selfhtml.org/wiki/JavaScript/DOM
+*/
+
+
+function toogleDnone(id) {
+    document.getElementById(id).classList.toggle('d_none');
+};

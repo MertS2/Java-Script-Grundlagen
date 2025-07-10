@@ -10,17 +10,30 @@
     <script src="./basics.js"></script>
     <script src="./conditional_code.js"></script>
     <script src="./functions.js"></script>
+    <script src="scopse.js" ></script>
     <link rel="stylesheet" href="./style.css">
 </head>
 
-<body>
+<body onload="scopeTest()">
     <h1 id="website_title">Website title</h1>
 
     <div id="test_div"></div> <br>
     <div class="yellow_bg" id="test_div_2"></div>
 
-    <input id="inputfield_test" type="number" value="5">
-</body>+
+    <input id="inputfield_test" type="number" value="5"> <br>
+    <input id="" type="text" onkeyup="console.log('keyup')"> <br>
+    <input id="" type="text" onkeydown="console.log('keydown')"> <br>
+    <input id="" type="text" onfocus="console.log(12345678910)"> <br>
+    <input type="checkbox" onchange="console.log(10)"> <br>
+
+
+
+    <h3 id="headline_3">Bin ich sichbar?</h3>
+    <button onclick="toogleDnone('headline_3')">submit</button>
+</body>
 <script src="./dom_manipulation.js"></script>
 
 </html>
+
+
+<!-- HTML DOM EVents: https://www.w3schools.com/jsref/dom_obj_event.asp -->

@@ -1,4 +1,5 @@
-/* let = discount = 100;
+/* 
+let = discount = 100;
 let = price = 500;
 
 console.log((price - discount) * 1.19);
@@ -60,5 +61,7 @@ function logCalculatedPrice(discount, price) {
 return gibt etwas zurück. Nach einem return, geht die functinon nicht weiter und stop dort.
 
 
+
+ Weiteren Lesestoff findest du bei w3schools: https://www.w3schools.com/js/js_functions.asp
 
 */
