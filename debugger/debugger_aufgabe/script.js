@@ -1,10 +1,11 @@
 let age = "18";
-setLetterTwo()
+
 
 
 
 function init() {
 
+    setLetterTwo();
     setLetterThree();
     setLetterFour();
     setLetterFive();
@@ -54,6 +55,10 @@ function setLetterSeven() {
     }
 }
 
+
+
+
+
 function calculateSum(a, b) {
     let sum = a + b;
     return sum;
@@ -75,11 +80,21 @@ function getNumber() {
 function buildHelloWorld() {
     let str = "HELLO";
 
-    str = str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-    str = str + " ";
-    str = str + "WORLD".toLowerCase();
-    str = str.replace("L", "l");
-    str = str.charAt(0).toLowerCase() + str.slice(1);
 
-    return str
+    str = str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+    /* Ergebnis: Hello*/
+
+    str = str + " ";
+    /* Hier wird ein leerzeichen hinzugefügt */
+
+    str = str + "WORLD".toLowerCase();
+    /* Bis hier Ergebniss ist = hello world */
+
+    str = str.replace("L", "l");
+    /* Bis hier Ergebniss ist = Hello world*/
+
+    str = str.charAt(0).toLowerCase() + str.slice(1);
+    // Erstes Zeichen kleinschreiben: "heLlo world"
+
+    return str;
 }
