@@ -1,16 +1,17 @@
-/* Aufgabenstellung 1: includes
+/* /* Aufgabenstellung 1: includes
 Implementiere eine Funktion namens containsElement(array, element), die true zurückgibt, wenn element im array enthalten ist, andernfalls false.
 
 Test: */
 
-
-function containsElement() {
- 
+function containsElement(array, element) {
+    array.includes(element);
+    return array;
 }
+
 
 console.log(containsElement(['Anna', 'Ben', 'Clara'], 'Ben')); // true
 
-console.log(containsElement(['Anna', 'Ben', 'Clara'], 'Daniel')); // false
+console.log(containsElement(['Anna', 'Ben', 'Clara'], 'Daniel'));  // false
 
 
 
@@ -20,20 +21,29 @@ Implementiere eine Funktion namens findElementIndex(array, element), die den Ind
 
 Test: */
 
+function findElementIndex(array, element) {
+    array.indexOf(element);
+    return array;
+}
+
 console.log(findElementIndex([10, 20, 30, 40], 30)); // 2
 
-console.log(findElementIndex([10, 20, 30, 40], 50)); // -1
+console.log(findElementIndex([10, 20, 30, 40], 50)); // -1 */
 
 
 
-/* Aufgabenstellung 3: shift
+/* /* Aufgabenstellung 3: shift
 Implementiere eine Funktion namens removeFirstElement(array), die das erste Element aus dem array entfernt und das neue Array zurückgibt.
 
-Test: */
+/* Test: */
+function removeFirstElement(array) {
+    array.unshift();
+    return array;
+}
 
 console.log(removeFirstElement([10, 20, 30, 40])); // [20, 30, 40]
 
-console.log(removeFirstElement(['a', 'b', 'c', 'd'])); // ['b', 'c', 'd']
+console.log(removeFirstElement(['a', 'b', 'c', 'd'])); //['b', 'c', 'd'] */
 
 
 
@@ -41,10 +51,14 @@ console.log(removeFirstElement(['a', 'b', 'c', 'd'])); // ['b', 'c', 'd']
 Implementiere eine Funktion namens addElementToStart(array, element), die das element am Anfang des array hinzufügt und das neue Array zurückgibt.
 
 Test: */
+function addElementToStart(array, element) {
+    array.unshift(element);
+    return array;
+}
 
 console.log(addElementToStart([2, 3, 4], 1)); // [1, 2, 3, 4]
 
-console.log(addElementToStart(['b', 'c', 'd'], 'a')); // ['a', 'b', 'c', 'd']
+console.log(addElementToStart(['b', 'c', 'd'], 'a')); // ['a', 'b', 'c', 'd'] */
 
 
 
@@ -53,9 +67,13 @@ Implementiere eine Funktion namens getSubArray(array, start, end), die ein neues
 
 Test: */
 
-console.log(getSubArray([1, 2, 3, 4, 5], 1, 4)); // [2, 3, 4]
+function getSubArray(array, start, end) {
+    array.slice(start, end)
+    return array;
+}
 
-console.log(getSubArray(['a', 'b', 'c', 'd', 'e'], 0, 3)); // ['a', 'b', 'c']
+console.log(getSubArray([1, 2, 3, 4, 5], 1, 4)); // [2, 3, 4]
+console.log(getSubArray(['a', 'b', 'c', 'd', 'e'], 0, 3)); // ['a', 'b', 'c'] */
 
 
 
@@ -64,6 +82,11 @@ Implementiere eine Funktion namens joinArray(array, separator), die eine Zeichen
 
 Test: */
 
+function joinArray(array, separator) {
+    array.join(separator);
+    return array;
+}
+
 console.log(joinArray(['apple', 'banana', 'cherry'], ', ')); // "apple, banana, cherry"
 
-console.log(joinArray([1, 2, 3, 4], ' - ')); // "1 - 2 - 3 - 4"
+console.log(joinArray([1, 2, 3, 4], ' - '));  // "1 - 2 - 3 - 4" */ 
