@@ -37,7 +37,7 @@ Implementiere eine Funktion namens removeFirstElement(array), die das erste Elem
 
 /* Test: */
 function removeFirstElement(array) {
-    array.unshift();
+    array.shift();
     return array;
 }
 
