@@ -4,8 +4,10 @@ Implementiere eine Funktion namens containsElement(array, element), die true zur
 Test: */
 
 function containsElement(array, element) {
-    array.includes(element);
-    return array;
+    let result = array.includes(element);
+    return result;
+
+    /* oder return array.includes(element); geht beides.  */
 }
 
 
@@ -22,8 +24,11 @@ Implementiere eine Funktion namens findElementIndex(array, element), die den Ind
 Test: */
 
 function findElementIndex(array, element) {
-    array.indexOf(element);
-    return array;
+    let result_2 = array.indexOf(element);
+    return result_2;
+
+    /* oder return array.indexOf(element); geht beides.  */
+
 }
 
 console.log(findElementIndex([10, 20, 30, 40], 30)); // 2
@@ -68,8 +73,9 @@ Implementiere eine Funktion namens getSubArray(array, start, end), die ein neues
 Test: */
 
 function getSubArray(array, start, end) {
-    array.slice(start, end)
-    return array;
+    let result_4 = array.slice(start, end);
+    return result_4;
+    /* oder return array.slice(start, end); */
 }
 
 console.log(getSubArray([1, 2, 3, 4, 5], 1, 4)); // [2, 3, 4]
@@ -83,8 +89,10 @@ Implementiere eine Funktion namens joinArray(array, separator), die eine Zeichen
 Test: */
 
 function joinArray(array, separator) {
-    array.join(separator);
-    return array;
+    let resutl_5 = array.join(separator);
+    return resutl_5;
+
+    /* oder return array.join(separator); */
 }
 
 console.log(joinArray(['apple', 'banana', 'cherry'], ', ')); // "apple, banana, cherry"
