@@ -98,3 +98,32 @@ function joinArray(array, separator) {
 console.log(joinArray(['apple', 'banana', 'cherry'], ', ')); // "apple, banana, cherry"
 
 console.log(joinArray([1, 2, 3, 4], ' - '));  // "1 - 2 - 3 - 4" */ 
+/* 
+
+break: Beendet die Schleife oder den switch-Block vollständig
+
+
+Beispiel: 
+
+for (let i = 1; i <= 5; i++) {
+  if (i === 3) {
+    break; // Schleife stoppt, wenn i gleich 3 ist
+  }
+  console.log(i);
+}
+
+
+continue: Überspringt den aktuellen Schleifendurchlauf
+
+Beispiel: 
+
+for (let i = 1; i <= 5; i++) {
+  if (i === 3) {
+    continue; // überspringt i = 3
+  }
+  console.log(i);
+}
+
+
+
+*/
