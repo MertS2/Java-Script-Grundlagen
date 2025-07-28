@@ -3,6 +3,10 @@
     margin: 0;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 @font-face {
     font-family: "BitcountGridSingle";
     src: url("./fonts/BitcountGridSingle-Regular.ttf");
@@ -13,6 +17,7 @@ h1 {
     font-family: "BitcountGridSingle";
     color: white;
 }
+
 
 h2 {}
 
@@ -30,15 +35,16 @@ header {
     width: 100%;
     padding: 20px 100px;
     text-align: center;
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid black;
 }
 
 #fotogram_logo {
     width: 350px;
+
 }
 
 .nav_link {
-    font-size: 30px;
+    font-size: 25px;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     text-decoration: none;
@@ -67,4 +73,57 @@ footer {
     justify-content: center;
 
     border-top: 1px solid black;
+}
+
+#img_container {
+    width: 5px;
+}
+
+
+
+/* Responsive Menu  */
+.resp_menu_box {
+    background-color: #003773;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 350px;
+    position: absolute;
+    top: 64;
+    right: 0;
+    transition: all 350ms ease-in-out;
+    border: 1px solid black;
+}
+
+.resp_menu_closed {
+    transform: translateX(100%);
+
+}
+
+.img_button {
+    height: 40px;
+    cursor: pointer;
+}
+
+.d_none {
+    display: none;
+}
+
+.imgs_style {
+    width: 1px;
+}
+
+@media(max-width: 1300px) {
+    .d_none {
+        display: flex;
+    }
+
+    .dektop_nav {
+        display: none;
+    }
+
+
+
 }
