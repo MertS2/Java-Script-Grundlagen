@@ -13,6 +13,36 @@ let imgs = [
     "./assets/switzerland-7899656_1280.jpg",
 ]
 
+let headlines = [
+    "Belgien",
+    "Berlin",
+    "Kopenhagen",
+    "Istanbul",
+    "Las Vegas",
+    "Linz",
+    "Los Angeles",
+    "Mallorca",
+    "Paris",
+    "Singapure",
+    "Stuttgart",
+    "Schweiz",
+]
+
+let description = [
+    "description_1",
+    "description_2",
+    "description_3",
+    "description_4",
+    "description_5",
+    "description_6",
+    "description_7",
+    "description_8",
+    "description_9",
+    "description_10",
+    "description_11",
+    "description_12",
+
+]
 
 
 function init() {
@@ -21,28 +51,29 @@ function init() {
 
 function render() {
     let main_inhalt = document.getElementById("main");
+    let main_headline = document.getElementById("main");
 
     main_inhalt.innerHTML = "";
+    main_headline.innerHTML = "";
 
     for (let i = 0; i < imgs.length; i++) {
-        main_inhalt.innerHTML += template(imgs[i]);
-   }
+        main_inhalt.innerHTML += template(headlines[i], imgs[i], description[i]);
+    }
 }
 
-function template(path) {
+
+
+function template(path, path2, path3) {
     return `   
-
-
-    <div id="img_container"> 
-    
-        <h2>Headline</h2>
+   <dialog>
+        
+    <h2>${path}</h2>
 
   
-      <img src="${path}">;
+    <img src="${path2}">;
 
-        <p>Description</p>
-    </div>
-
+    <p>${path3}</p>
+</dialog>
     `
 }
 
@@ -50,4 +81,6 @@ function template(path) {
 /* Responsive Menü leiste. */
 function toogle_rest_menu() {
     document.getElementById("resp_menu").classList.toggle("resp_menu_closed");
-} 
+}
+
+
