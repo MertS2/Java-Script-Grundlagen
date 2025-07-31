@@ -1,9 +1,6 @@
 * {
     box-sizing: border-box;
     margin: 0;
-}
-
-body {
     overflow-x: hidden;
 }
 
@@ -27,7 +24,7 @@ h3 {
 }
 
 
-header {
+.header_main {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -63,7 +60,7 @@ main {
     background-color: #054B96;
 }
 
-footer {
+.fotter_main {
     background-color: #003773;
     height: 100px;
     text-align: center;
@@ -75,8 +72,22 @@ footer {
     border-top: 1px solid black;
 }
 
-.imgs {
-    width: 5px;
+.imgs_main {
+    padding: 40px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    max-width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.imgs_container_main {
+    width: 300px;
+    height: 300px;
+    border: 2px solid black;
+    border-radius: 4px;
+    object-fit: cover;
 }
 
 
