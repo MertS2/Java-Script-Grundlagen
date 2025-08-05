@@ -5,39 +5,53 @@
 }
 
 @font-face {
-    font-family: "BitcountGridSingle";
+    font-family: "BitcountGridSingle_Regular";
     src: url("./fonts/BitcountGridSingle-Regular.ttf");
 }
 
+@font-face {
+    font-family: "Open_Sonc_Regular";
+    src: url("./fonts/OpenSans_Condensed-Regular.ttf");
+}
+
+
 h1 {
     font-size: 55px;
-    font-family: "BitcountGridSingle";
+    font-family: "BitcountGridSingle_Regular";
     color: white;
 }
 
 
-h2 {}
+h2 {
+    font-size: 50px;
+}
 
 h3 {
     color: lightgray;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Open_Sonc_Regular";
+}
+
+p {
+    font-size: 20px;
+    font-family: "Open_Sonc_Regular";
 }
 
 
 .header_main {
+    /*  Das Element wird zu einem flexiblen Container,
+    der seine Kinder horizontal oder vertikal anordnet  */
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #003773;
     width: 100%;
-    padding: 20px 100px;
+    padding: 50px 20px;
     text-align: center;
     border-bottom: 2px solid black;
 }
 
 #fotogram_logo {
-    width: 350px;
-
+    width: 250px;
 }
 
 .nav_link {
@@ -45,20 +59,23 @@ h3 {
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     text-decoration: none;
-    padding-left: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+
 }
 
 .nav_link:hover {
     background-color: rgba(211, 211, 211, 0.404);
     border-radius: 6px;
-    padding: 10px 10px;
-    text-decoration: underline;
 }
 
 
 main {
+    /* Element bleibt am normalen Platz, kann aber leicht verschoben werden */
+    position: relative;
     background-color: #054B96;
 }
+
 
 .fotter_main {
     background-color: #003773;
@@ -68,7 +85,6 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-
     border-top: 1px solid black;
 }
 
@@ -87,10 +103,83 @@ main {
     height: 300px;
     border: 2px solid black;
     border-radius: 4px;
+
+    /*    Bild füllt den Container komplett aus und schneidet überstehende Teile ab */
     object-fit: cover;
 }
 
+.imgs_container_main:hover {
+    cursor: pointer;
+    -webkit-box-shadow: 0px 0px 0px 5px #A0A0A0, inset 0px 10px 27px -8px #141414, inset 0px -10px 27px -8px #A31925, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    box-shadow: 0px 0px 0px 5px #A0A0A0, inset 0px 10px 27px -8px #141414, inset 0px -10px 27px -8px #A31925, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
 
+
+
+.dialog {
+    /*    Das Element nimmt die ganze Breite seines Containers ein und beginnt in einer neuen Zeile */
+    display: block;
+
+    /* Das Element bleibt immer an einer festen Position auf dem Bildschirm,
+    auch beim Scrollen der Seite  */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+
+    /*    Verschiebt das Element um 50% seiner eigenen Breite nach links und 50% seiner Höhe nach oben */
+    transform: translate(-50%, -50%);
+
+    width: 30%;
+    height: 60%;
+    background-color: #054B96;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dialog_header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.close_button {
+    background-color: white;
+    font-size: 25px;
+    border: 1px solid black;
+    height: 40px;
+    width: 40px;
+}
+
+.close_button:hover {
+    background: lightgray;
+    cursor: pointer;
+}
+
+.dialog_arrow {
+    font-size: 25px;
+    border: 2px solid black;
+    height: 40px;
+    width: 40px;
+    border-radius: 8px;
+    color: white;
+    background-color: #054B96;
+}
+
+.dialog_arrow:hover {
+    background-color: #003773;
+    cursor: pointer;
+}
+
+.dialog_main {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
 
 /* Responsive Menu  */
 .resp_menu_box {
@@ -104,11 +193,14 @@ main {
     position: absolute;
     top: 64;
     right: 0;
+
+    /* Alle Änderungen an Eigenschaften (z. B. Farbe, Größe) passieren über 350 Millisekunden mit einer sanften Beschleunigung und Verzögerung */
     transition: all 350ms ease-in-out;
     border: 1px solid black;
 }
 
 .resp_menu_closed {
+    /*     Verschiebt das Element horizontal um 100% seiner eigenen Breite nach rechts */
     transform: translateX(100%);
 
 }
@@ -135,7 +227,4 @@ main {
     .dektop_nav {
         display: none;
     }
-
-
-
 }

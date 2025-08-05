@@ -5,12 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Impressum</title>
-    <link rel="stylesheet" href="impresum.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./impresum.css">
+
+    <script src="./script.js"></script>
 </head>
 
 <body>
-    <header id="header" class="header"></header>
+    <header class="header_main">
 
+        <img id="fotogram_logo" src="./icons/Fotogram_Logo.svg" alt="Fotogram_Logo">
+        <h1>Fotogram</h1>
+
+        <nav class="dektop_nav">
+        <a class="nav_link" href="./index.html">Start</a>
+        </nav>
+
+        <button class="d_none" onclick="toogle_rest_menu()">
+            <img class="img_button" src="./icons/bars-solid.svg" alt="">
+        </button>
+    </header>
+
+    <nav id="resp_menu" class=" resp_menu_box resp_menu_closed">
+        <a class="nav_link" href="./index.html">Start</a>
+    </nav>
 
     <main class="main_container">
         <h1>Impressum</h1>
@@ -37,10 +55,12 @@
 
         <h2>Hinweis</h2>
         <p>Diese Seite ist im Rahmen einer Weiterbildung an der Developer-Akademie entstanden.</p>
-
     </main>
 
-    <footer id="footer" class="footer"></footer>
+    <footer class="fotter_main">
+        <h3> © 2025 Mert Sönmez.</h3>
+    </footer>
+
 </body>
 
 </html>

@@ -13,17 +13,33 @@
 
 <body onload="init()">
 
-    <header id="header" class="header"></header>
+    <header class="header_main">
+
+        <img id="fotogram_logo" src="./icons/Fotogram_Logo.svg" alt="Fotogram_Logo">
+        <h1>Fotogram</h1>
+
+        <nav class="dektop_nav">
+            <a class="nav_link" href="./impresum.html">Impresum</a>
+        </nav>
+
+        <button class="d_none" onclick="toogle_rest_menu()">
+            <img class="img_button" src="./icons/bars-solid.svg" alt="">
+        </button>
+    </header>
+
+    <nav id="resp_menu" class=" resp_menu_box resp_menu_closed">
+        <a class="nav_link" href="./impresum.html">Impresum</a>
+    </nav>
+
 
     <main>
-        <section id="main" class="imgs_main">
-            Main
-        </section>
-        <button onclick="template()">Button</button>
-
+        <section id="main" class="imgs_main"></section>
+        <div id="dialog_container"></div>
     </main>
 
-    <footer id="footer" class="footer"></footer>
+    <footer class="fotter_main">
+        <h3> © 2025 Mert Sönmez.</h3>
+    </footer>
 
 </body>
 
