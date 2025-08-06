@@ -34,27 +34,81 @@ let headlines = [
     "Antalya",
     "Dubai",
     "Izmir"
-
 ]
+
+let show_more = [
+    "show more",
+    "show more",
+    "show more",
+    "show more",
+    "show more",
+    "show more",
+    "show more",
+    "show more",
+    "show more",
+    "show more",
+    "show more",
+    "show more",
+    "show more",
+    "show more",
+    "show more",
+]
+
 
 let description = [
-    "description_1",
-    "description_2",
-    "description_3",
-    "description_4",
-    "description_5",
-    "description_6",
-    "description_7",
-    "description_8",
-    "description_9",
-    "description_10",
-    "description_11",
-    "description_12",
-    "description_13",
-    "description_14",
-    "description_15",
+    `   Belgien, ein kleines Land mit großer Vielfalt, begeistert mit mittelalterlichen Städten, 
+    kulinarischen Highlights wie Waffeln und Schokolade sowie einer reichen Kultur. Ob Brüssel mit 
+    seinem charmanten Zentrum oder die Grachten von Brügge – Belgien vereint Geschichte, Stil und Genuss.`,
 
-]
+    `   Berlin, die deutsche Hauptstadt, ist ein pulsierendes Zentrum für Kultur, Geschichte und Kreativität. 
+    Mit ihrer bewegten Vergangenheit, ikonischen Sehenswürdigkeiten wie dem Brandenburger Tor und der East Side Gallery 
+    sowie einer vielfältigen Kulturszene zieht Berlin Besucher aus aller Welt in ihren Bann.`,
+
+    `   Kopenhagen, die Hauptstadt Dänemarks, verbindet skandinavisches Design mit entspannter Lebensart. 
+    Die farbenfrohen Häuser von Nyhavn, moderne Architektur, Fahrräder und Nachhaltigkeit prägen das Stadtbild – 
+    ein Ort, der Tradition und Innovation harmonisch vereint.`,
+
+    `   Istanbul, die Stadt auf zwei Kontinenten, ist ein Schmelztiegel der Kulturen. Zwischen Moscheen, Palästen, 
+    Basaren und modernen Cafés spürt man überall die reiche Geschichte des Osmanischen Reiches. 
+    Istanbul fasziniert durch seine Dynamik und Tiefe.`,
+
+    `   Las Vegas, die Glitzermetropole in der Wüste Nevadas, steht für Unterhaltung pur. Von beeindruckenden Casinos 
+    über spektakuläre Shows bis zu funkelnden Hotels – in Las Vegas wird die Nacht zum Tag und jeder Besuch zum Erlebnis.`,
+
+    `   Linz, die drittgrößte Stadt Österreichs, liegt malerisch an der Donau und überrascht mit moderner Kunst, 
+    digitaler Innovation und historischer Architektur. Die Mischung aus Technik, Kultur und Natur macht Linz besonders lebenswert.`,
+
+    `   Los Angeles, die Stadt der Engel, ist ein Zentrum für Film, Kunst und Lifestyle. Von den Stränden von Santa Monica 
+    bis zu den Studios von Hollywood bietet L.A. Sonne, Vielfalt und kreatives Flair in Hülle und Fülle.`,
+
+    `   Mallorca, die größte Insel der Balearen, begeistert mit atemberaubenden Küsten, charmanten Dörfern 
+    und einer faszinierenden Mischung aus Natur und Kultur. Ob entspannter Strandurlaub, Wanderungen in der Serra de Tramuntana 
+    oder Erkundung der historischen Altstadt von Palma – Mallorca bietet für jeden etwas.`,
+
+    `   Paris, die Stadt der Liebe, verführt mit Eleganz, Romantik und Kunst. Vom Eiffelturm über den Louvre 
+    bis zu charmanten Straßencafés – Paris ist ein Fest für alle Sinne und ein Symbol europäischer Kultur.`,
+
+    `   Singapur, die Hightech-Metropole in Südostasien, verbindet beeindruckende Skyline mit tropischem Flair. 
+    Zwischen futuristischen Gärten, traditioneller Chinatown und kulinarischer Vielfalt zeigt sich Singapur als globaler Hotspot.`,
+
+    `   Stuttgart, eingebettet in Weinberge, ist das Herz der schwäbischen Region und bekannt für Automobilgeschichte, 
+    kulturelle Vielfalt und moderne Architektur. Ob Mercedes-Benz-Museum oder Schlossplatz – Stuttgart bietet urbane Eleganz und Tradition.`,
+
+    `   Die Schweiz begeistert mit majestätischen Alpen, glasklaren Seen und einem hohen Lebensstandard. 
+    Städte wie Zürich, Genf oder Luzern vereinen Natur, Präzision und kulturelle Vielfalt auf kleinstem Raum.`,
+
+    `   Antalya, die Perle der türkischen Riviera, verbindet traumhafte Strände mit historischen Stätten 
+    wie dem Hadrianstor oder der Altstadt Kaleiçi. Sonne, Meer und orientalischer Charme machen Antalya zu einem beliebten Reiseziel.`,
+
+    `   Dubai, die glitzernde Metropole in den Vereinigten Arabischen Emiraten, steht für Luxus, Innovation und Superlative. 
+    Vom Burj Khalifa bis zu künstlichen Inseln – Dubai beeindruckt mit futuristischem Städtebau und orientalischer Gastfreundschaft.`,
+
+    `   İzmir, gelegen an der Westküste der Türkei, ist eine lebendige Hafenstadt mit einer reichen Geschichte, 
+    die bis in die Antike zurückreicht. Bekannt für ihr mildes Klima, die mediterrane Lebensart und ihre herzliche Atmosphäre, 
+    verbindet İzmir modernes Stadtleben mit antiken Wurzeln. Ob bei einem Spaziergang entlang der Küstenpromenade, beim Besuch des 
+    historischen Basars oder beim Entdecken antiker Stätten wie Ephesos in der Nähe – İzmir verzaubert mit Charme und Vielfalt.`
+];
+
 
 
 
@@ -74,7 +128,7 @@ function render() {
 
     /* Schleife, die alle Bilder, Überschriften und Beschreibungen der Reihe nach einfügt.*/
     for (let i = 0; i < imgs.length; i++) {
-        main_content.innerHTML += template(headlines[i], imgs[i], description[i], i); /* Fügt ins HTML die function mit den Parametern.  */
+        main_content.innerHTML += template(headlines[i], imgs[i], show_more[i], i); /* Fügt ins HTML die function mit den Parametern.  */
     }
 }
 
@@ -98,7 +152,7 @@ function template(path, path2, path3, i) {
         
         </figure>
 
-        <p>${path3}</p>
+        <button class="show_more_btn" >${path3}</button>
 
     </article>
     `
@@ -108,29 +162,24 @@ function template(path, path2, path3, i) {
 function dialog(path, path2, path3) {
     return `   
 
-    <dialog class="dialog" >
+    <dialog id="dialog" class="dialog" >
 
     <header class="dialog_header" >
         <h2>${path}</h2>
         <button class="close_button" onclick="removeOverlay()">X</button>
     </header>
 
-    <figure class="dialog_main" >
-        <figcaption>
-            <p> Figcaption </p>
-        </figcaption>
-
-        
-            
-        <button onclick="arrow(i)" class="dialog_arrow" > <= </button>
-        
-        <img class="imgs_container_main" src="${path2}">
-        
-        <button onclick="arrow(i)" class="dialog_arrow"> => </button>
+    <main class="dialog_main" >
     
-        </figure>
+        <button onclick="arrow(i)" class="dialog_arrow_btn" > <= </button>
+        
+        <img class="imgs_container_dialog" src="${path2}">
+        
+        <button onclick="arrow(i)" class="dialog_arrow_btn"> => </button>
+    
+        </main>
 
-        <p>${path3}</p>
+        <p class="description_dialog">${path3}</p>
 
   </dialog>
   `
@@ -143,35 +192,26 @@ function addOverlay(i) {
 
     /*     Leert den vorherigen Inhal*/
     refAddoverlay.innerHTML = "";
+
     /*     Fügt den neuen Dialog mit den entsprechenden Inhalten ein*/
     refAddoverlay.innerHTML += dialog(headlines[i], imgs[i], description[i], i); /* Fügt ins HTML die function mit den Parametern.  */
+
+    let dialog_element = document.getElementById('dialog');
+
+    if (dialog_element) { /*  zeigt den Dialog als modales Fenster */
+        dialog_element.showModal();
+    }
 }
 
 function removeOverlay() {
     /*     Holt das Dialog-Container-Element*/
     let refRemoveOverlay = document.getElementById('dialog_container'); /* spricht man die Id an. */
 
-    /*     Wenn das Element existiert, wird eine CSS-Klasse hinzugefügt, um es auszublenden*/
+    /*     Wenn das Element existiert, Leert der den vorherigen Inhal*/
     if (refRemoveOverlay) {
-        refRemoveOverlay.classList.add('d_none')
+        refRemoveOverlay.innerHTML = "";
     }
 }
-
-function arrow(i) {
-    /*Holt das HTML-Element mit der ID "main", um es später mit Inhalten zu füllen.*/
-    let arrow = document.getElementById("main");
-
-    /* Setzt den Inhalt des Elements zurück, bevor neuer Inhalt eingefügt wird.*/
-    arrow.innerHTML = "";
-
-
-    /* Schleife, die alle Bilder, Überschriften und Beschreibungen der Reihe nach einfügt.*/
-    for (let i = 0; i < imgs.length; i++) {
-        arrow.innerHTML += dialog(headlines[i], imgs[i], description[i], i); /* Fügt ins HTML die function mit den Parametern.  */
-    }
-}
-
-
 
 /* Responsive Menü leiste. */
 

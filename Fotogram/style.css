@@ -1,6 +1,9 @@
 * {
     box-sizing: border-box;
     margin: 0;
+}
+
+body {
     overflow-x: hidden;
 }
 
@@ -59,8 +62,7 @@ p {
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     text-decoration: none;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 10px;
 
 }
 
@@ -75,7 +77,6 @@ main {
     position: relative;
     background-color: #054B96;
 }
-
 
 .fotter_main {
     background-color: #003773;
@@ -108,12 +109,20 @@ main {
     object-fit: cover;
 }
 
-.imgs_container_main:hover {
-    cursor: pointer;
-    -webkit-box-shadow: 0px 0px 0px 5px #A0A0A0, inset 0px 10px 27px -8px #141414, inset 0px -10px 27px -8px #A31925, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-    box-shadow: 0px 0px 0px 5px #A0A0A0, inset 0px 10px 27px -8px #141414, inset 0px -10px 27px -8px #A31925, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+.imgs_container_dialog {
+    width: 300px;
+    height: 300px;
+    border: 2px solid black;
+    border-radius: 4px;
+
+    /*    Bild füllt den Container komplett aus und schneidet überstehende Teile ab */
+    object-fit: cover;
 }
 
+.imgs_container_main:hover {
+    cursor: pointer;
+    box-shadow: 0px 6px 26px 15px white;
+}
 
 
 .dialog {
@@ -129,11 +138,14 @@ main {
     /*    Verschiebt das Element um 50% seiner eigenen Breite nach links und 50% seiner Höhe nach oben */
     transform: translate(-50%, -50%);
 
-    width: 30%;
-    height: 60%;
+    width: 680px;
+    height: 680px;
     background-color: #054B96;
     border-radius: 4px;
-    text-align: center;
+}
+
+.dialog::backdrop {
+    background-color: black;
 }
 
 .dialog::backdrop {
@@ -143,8 +155,13 @@ main {
 .dialog_header {
     display: flex;
     justify-content: space-around;
+    padding-bottom: 30px;
     align-items: center;
-    padding-bottom: 10px;
+    border-bottom: 2px solid black;
+    width: 60%;
+    /* Hier wird die Breite auf 60% gesetzt */
+    margin: 0 auto;
+    /* Zentriert das Element horizontal */
 }
 
 .close_button {
@@ -153,24 +170,29 @@ main {
     border: 1px solid black;
     height: 40px;
     width: 40px;
+    background-color: #054B96;
+    border-radius: 4px;
+    color: white;
 }
 
 .close_button:hover {
-    background: lightgray;
+    background: #003773;
     cursor: pointer;
 }
 
-.dialog_arrow {
+.dialog_arrow_btn {
     font-size: 25px;
     border: 2px solid black;
-    height: 40px;
-    width: 40px;
+    height: 60px;
+    width: 60px;
     border-radius: 8px;
     color: white;
     background-color: #054B96;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
-.dialog_arrow:hover {
+.dialog_arrow_btn:hover {
     background-color: #003773;
     cursor: pointer;
 }
@@ -178,8 +200,38 @@ main {
 .dialog_main {
     display: flex;
     align-items: center;
-    gap: 20px;
+    justify-content: center;
+    gap: 60px;
+    padding: 10px;
+    padding-top: 50px;
+    padding-bottom: 20px;
 }
+
+.description_dialog {
+    padding: 10px;
+    font-size: 18px;
+    padding-top: 10px;
+    text-align: center;
+    background-color: #054386;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+.show_more_btn {
+    background-color: #003773;
+    color: white;
+    border: 0;
+    font-size: 20px;
+    width: 300px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.show_more_btn:hover {
+    cursor: pointer;
+    background-color: #054386;
+}
+
 
 /* Responsive Menu  */
 .resp_menu_box {
