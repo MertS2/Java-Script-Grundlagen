@@ -98,7 +98,8 @@ main {
 .nav_container {
     display: flex;
     justify-content: space-between;
-    align-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .nav_links_mobile {
