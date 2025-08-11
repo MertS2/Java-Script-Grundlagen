@@ -19,7 +19,7 @@ body {
 
 
 h1 {
-    font-size: 55px;
+    font-size: 50px;
     font-family: "BitcountGridSingle_Regular";
     color: white;
 }
@@ -27,11 +27,14 @@ h1 {
 
 h2 {
     font-size: 50px;
+    font-family: "Open_Sonc_Regular";
+    text-align: center;
+    padding-bottom: 20px;
 }
 
 h3 {
-    color: lightgray;
-    font-family: "Open_Sonc_Regular";
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 p {
@@ -41,40 +44,54 @@ p {
 
 
 .header_main {
-    /*  Das Element wird zu einem flexiblen Container,
-    der seine Kinder horizontal oder vertikal anordnet  */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     background-color: #003773;
     width: 100%;
     padding: 50px 20px;
-    text-align: center;
     border-bottom: 2px solid black;
+}
+
+.nav_container {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.nav_links_mobile {
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    color: white;
+    text-decoration: none;
+    font-family: "Open_Sonc_Regular";
+}
+
+.nav_links_mobile:hover {
+    background-color: rgba(211, 211, 211, 0.178);
+    border-radius: 6px;
+    padding: 15px;
 }
 
 #fotogram_logo {
     width: 250px;
 }
 
-.nav_link {
-    font-size: 25px;
+.nav_links_dektop {
+    font-size: 30px;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     text-decoration: none;
     padding: 10px;
-
 }
 
-.nav_link:hover {
+.nav_links_dektop:hover {
     background-color: rgba(211, 211, 211, 0.404);
     border-radius: 6px;
 }
 
 
 main {
-    /* Element bleibt am normalen Platz, kann aber leicht verschoben werden */
-    position: relative;
     background-color: #054B96;
 }
 
@@ -91,9 +108,11 @@ main {
 
 .imgs_main {
     padding: 40px;
+    padding-left: 150px;
+    padding-right: 150px;
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 50px;
     max-width: 100%;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -138,8 +157,8 @@ main {
     /*    Verschiebt das Element um 50% seiner eigenen Breite nach links und 50% seiner Höhe nach oben */
     transform: translate(-50%, -50%);
 
-    width: 680px;
-    height: 680px;
+    width: 700px;
+    height: 700px;
     background-color: #054B96;
     border-radius: 4px;
 }
@@ -168,8 +187,8 @@ main {
     background-color: white;
     font-size: 25px;
     border: 1px solid black;
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
     background-color: #054B96;
     border-radius: 4px;
     color: white;
@@ -200,11 +219,11 @@ main {
 .dialog_main {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 60px;
-    padding: 10px;
+    gap: 50px;
+    padding-left: 60px;
+    padding-right: 60px;
     padding-top: 50px;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
 }
 
 .description_dialog {
@@ -215,6 +234,7 @@ main {
     background-color: #054386;
     border: 1px solid black;
     border-radius: 8px;
+    padding-top: 15px;
 }
 
 .show_more_btn {
@@ -232,38 +252,9 @@ main {
     background-color: #054386;
 }
 
-
-/* Responsive Menu  */
-.resp_menu_box {
-    background-color: #003773;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 180px;
-    height: 350px;
-    position: absolute;
-    top: 64;
-    right: 0;
-
-    /* Alle Änderungen an Eigenschaften (z. B. Farbe, Größe) passieren über 350 Millisekunden mit einer sanften Beschleunigung und Verzögerung */
-    transition: all 350ms ease-in-out;
-    border: 1px solid black;
-}
-
-.resp_menu_closed {
-    /*     Verschiebt das Element horizontal um 100% seiner eigenen Breite nach rechts */
-    transform: translateX(100%);
-
-}
-
 .img_button {
     height: 40px;
     cursor: pointer;
-}
-
-.d_none {
-    display: none;
 }
 
 .imgs_style {
@@ -271,12 +262,136 @@ main {
     height: 1px;
 }
 
-@media(max-width: 1300px) {
-    .d_none {
+.mobile_nav_container {
+    display: none;
+}
+
+.mobile_nav_img {
+    width: 50px;
+    height: 50px;
+}
+
+.mobile_nav_img:hover {
+    background-color: darkgray;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.open_nav_mobile {
+    width: 100%;
+    height: 120px;
+    background-color: black;
+}
+
+.d_none {
+    display: none;
+}
+
+
+@media(max-width: 850px) {
+
+    h2 {
+        font-size: 30px;
+    }
+
+    #fotogram_logo {
+        display: none;
+    }
+
+    .dialog {
+        width: 550px;
+        height: 550px;
+    }
+
+    .dialog_main {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .description_dialog {
+        font-size: 16px;
+    }
+
+    .imgs_container_dialog {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media(max-width: 600px) {
+
+    h1 {
+        font-size: 40px;
+    }
+
+    .imgs_container_main {
+        width: 200px;
+        height: 200px;
+    }
+
+    .show_more_btn {
+        width: 200px;
+    }
+
+    .imgs_main {
+        padding-left: 50px;
+        padding-right: 50px;
+        padding: 20px;
+    }
+
+    .dialog {
+        width: 550px;
+        height: 550px;
+    }
+
+    .dialog_main {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .description_dialog {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .imgs_container_dialog {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media(max-width: 490px) {
+
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .header_main {
+        padding: 25px 10px;
+    }
+
+    .nav_links_dektop {
+        display: none;
+    }
+
+    .mobile_nav_container {
         display: flex;
     }
 
-    .dektop_nav {
-        display: none;
+    .nav_container {
+        display: flex;
+        align-items: center;
+    }
+}
+
+@media(max-width: 325px) {
+
+    .mobile_nav_img {
+        width: 40px;
+        height: 40px;
     }
 }

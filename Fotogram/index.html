@@ -14,23 +14,27 @@
 <body onload="init()">
 
     <header class="header_main">
+        <div class="nav_container">
+            <img id="fotogram_logo" src="./icons/Fotogram_Logo.svg" alt="Fotogram_Logo">
 
-        <img id="fotogram_logo" src="./icons/Fotogram_Logo.svg" alt="Fotogram_Logo">
-        <h1>Fotogram</h1>
+            <h1>Fotogram</h1>
 
-        <nav class="dektop_nav">
-            <a class="nav_link" href="./impresum.html">Impresum</a>
-        </nav>
+            <nav class="dektop_nav_container">
+                <a class="nav_links_dektop" href="./impresum.html">Impressum</a>
+            </nav>
 
-        <button class="d_none" onclick="toogle_rest_menu()">
-            <img class="img_button" src="./icons/bars-solid.svg" alt="">
-        </button>
+            <nav class="mobile_nav_container">
+                <button onclick="nav_mobile_function()">
+                    <img class="mobile_nav_img" src="./icons/bars-solid.svg" alt="">
+                </button>
+            </nav>
+        </div>
     </header>
+    <div id="nav_mobile_main" class="open_nav_mobile ">
+        <a class="nav_links_mobile" href="./impresum.html">Impressum</a>
+        <a class="nav_links_mobile" href="./kontakt/index.html">Kontaktformular</a>
 
-    <nav id="resp_menu" class=" resp_menu_box resp_menu_closed">
-        <a class="nav_link" href="./impresum.html">Impresum</a>
-    </nav>
-
+    </div>
 
     <main>
         <section id="main" class="imgs_main"></section>
@@ -38,7 +42,7 @@
     </main>
 
     <footer class="fotter_main">
-        <h3> © 2025 Mert Sönmez.</h3>
+        <h3> © 2025 Mert Sönmez</h3>
     </footer>
 
 </body>

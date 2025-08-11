@@ -5,61 +5,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Impressum</title>
-    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./impresum.css">
-
-    <script src="./script.js"></script>
 </head>
 
 <body>
     <header class="header_main">
+        <div class="nav_container">
+            <img id="fotogram_logo" src="./icons/Fotogram_Logo.svg" alt="Fotogram_Logo">
 
-        <img id="fotogram_logo" src="./icons/Fotogram_Logo.svg" alt="Fotogram_Logo">
-        <h1>Fotogram</h1>
+            <h1>Impressum</h1>
 
-        <nav class="dektop_nav">
-        <a class="nav_link" href="./index.html">Start</a>
-        </nav>
+            <nav class="dektop_nav_container">
+                <a class="nav_links_dektop" href="./index.html">Start</a>
+            </nav>
 
-        <button class="d_none" onclick="toogle_rest_menu()">
-            <img class="img_button" src="./icons/bars-solid.svg" alt="">
-        </button>
+            <nav class="mobile_nav_container">
+                <button onclick="nav_mobile_function()">
+                    <img class="mobile_nav_img" src="./icons/bars-solid.svg" alt="">
+                </button>
+            </nav>
+        </div>
     </header>
 
-    <nav id="resp_menu" class=" resp_menu_box resp_menu_closed">
-        <a class="nav_link" href="./index.html">Start</a>
-    </nav>
+    <div id="nav_mobile_impressum" class="open_nav_mobile d_none">
+        <a class="nav_links_mobile" href="./index.html">Start</a>
+        <a class="nav_links_mobile" href="./kontakt/index.html">Kontaktformular</a>
 
-    <main class="main_container">
-        <h1>Impressum</h1>
-        <h2>Diensteanbieter</h2>
-        <p>Max Mustermann</p>
+    </div>
 
-        <h2>Kontaktmöglichkeiten</h2>
-        <p>E-Mail-Adresse: MaxMustermann@<a href="mailto:221@gmail.com">221@gmail.com</a></p>
 
-        <h2>Haftungs- und Schutzrechtshinweise</h2>
-        <p>Haftungsausschluss: Die Inhalte dieses Onlineangebotes wurden sorgfältig und nach unserem aktuellen
-            Kenntnisstand
-            erstellt, dienen jedoch nur der Information und entfalten keine rechtlich bindende Wirkung, sofern es sich
-            nicht
-            um gesetzlich verpflichtende Informationen (z. B. das Impressum, die Datenschutzerklärung, AGB oder
-            verpflichtende Belehrungen von Verbrauchern) handelt. Wir behalten uns vor, die Inhalte vollständig oder
-            teilweise zu ändern oder zu löschen, soweit vertragliche Verpflichtungen unberührt bleiben. Alle Angebote
-            sind
-            freibleibend und unverbindlich.</p>
-        <p>Hinweise auf Rechtsverstöße: Sollten Sie innerhalb unseres Internetauftritts Rechtsverstöße bemerken, bitten
-            wir
-            Sie uns auf diese hinzuweisen. Wir werden rechtswidrige Inhalte und Links nach Kenntnisnahme unverzüglich
-            entfernen.</p>
+    <main>
+        <section class="main_container">
+            <h2>Diensteanbieter</h2>
+            <p>Mert Sönmez</p>
 
-        <h2>Hinweis</h2>
-        <p>Diese Seite ist im Rahmen einer Weiterbildung an der Developer-Akademie entstanden.</p>
+            <h2>Kontaktmöglichkeiten</h2>
+
+            <p>E-Mail: <a class="e-mail" href="mailto:mertsoenmez6@gmail.com">mertsoenmez6@gmail.com</a></p>
+
+            <h2>Haftungs- und Schutzrechtshinweise</h2>
+            <p>Haftungsausschluss: Die Inhalte dieses Onlineangebotes wurden sorgfältig und nach unserem aktuellen
+                Kenntnisstand
+                erstellt, dienen jedoch nur der Information und entfalten keine rechtlich bindende Wirkung, sofern
+                es
+                sich
+                nicht
+                um gesetzlich verpflichtende Informationen (z. B. das Impressum, die Datenschutzerklärung, AGB oder
+                verpflichtende Belehrungen von Verbrauchern) handelt. Wir behalten uns vor, die Inhalte vollständig
+                oder
+                teilweise zu ändern oder zu löschen, soweit vertragliche Verpflichtungen unberührt bleiben. Alle
+                Angebote
+                sind
+                freibleibend und unverbindlich.</p>
+            <p>Hinweise auf Rechtsverstöße: Sollten Sie innerhalb unseres Internetauftritts Rechtsverstöße bemerken,
+                bitten
+                wir
+                Sie uns auf diese hinzuweisen. Wir werden rechtswidrige Inhalte und Links nach Kenntnisnahme
+                unverzüglich
+                entfernen.</p>
+
+            <h2>Datenschutz </h2>
+            <p> Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit
+                auf
+                unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder eMail-Adressen) erhoben
+                werden,
+                erfolgt dies, soweit möglich, stets auf freiwilliger Basis. Diese Daten werden ohne Ihre
+                ausdrückliche
+                Zustimmung nicht an Dritte weitergegeben.
+                Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail)
+                Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist
+                nicht
+                möglich.
+                Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten durch Dritte zur
+                Übersendung
+                von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit ausdrücklich
+                widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der
+                unverlangten Zusendung von Werbeinformationen, etwa durch Spam-Mails, vor.
+            </p>
+
+            <h2>Hinweis</h2>
+            <p>Diese Seite ist im Rahmen einer Weiterbildung an der Developer-Akademie entstanden.</p>
+        </section>
     </main>
 
     <footer class="fotter_main">
-        <h3> © 2025 Mert Sönmez.</h3>
+        <h3> © 2025 Mert Sönmez</h3>
     </footer>
+
+    <script>
+        function nav_mobile_function() {
+            let nav_imp = document.getElementById("nav_mobile_impressum");
+            nav_imp.classList.toggle("d_none");
+        } 
+    </script>
 
 </body>
 

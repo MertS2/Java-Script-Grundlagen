@@ -16,6 +16,7 @@ let imgs = [
     "./assets/antalya-7572191_1280.jpg",
     "./assets/dubai-1227538_1280.jpg",
     "./assets/sea-984944_1280.jpg",
+    "./assets/alanya-3758816_1280.jpg"
 ]
 
 let headlines = [
@@ -33,10 +34,12 @@ let headlines = [
     "Schweiz",
     "Antalya",
     "Dubai",
-    "Izmir"
+    "Izmir",
+    "Alanya",
 ]
 
 let show_more = [
+    "show more",
     "show more",
     "show more",
     "show more",
@@ -57,56 +60,60 @@ let show_more = [
 
 let description = [
     `   Belgien, ein kleines Land mit großer Vielfalt, begeistert mit mittelalterlichen Städten, 
-    kulinarischen Highlights wie Waffeln und Schokolade sowie einer reichen Kultur. Ob Brüssel mit 
-    seinem charmanten Zentrum oder die Grachten von Brügge – Belgien vereint Geschichte, Stil und Genuss.`,
+        kulinarischen Highlights wie Waffeln und Schokolade sowie einer reichen Kultur. Ob Brüssel mit 
+        seinem charmanten Zentrum oder die Grachten von Brügge – Belgien vereint Geschichte, Stil und Genuss.`,
 
     `   Berlin, die deutsche Hauptstadt, ist ein pulsierendes Zentrum für Kultur, Geschichte und Kreativität. 
-    Mit ihrer bewegten Vergangenheit, ikonischen Sehenswürdigkeiten wie dem Brandenburger Tor und der East Side Gallery 
-    sowie einer vielfältigen Kulturszene zieht Berlin Besucher aus aller Welt in ihren Bann.`,
+        Mit ihrer bewegten Vergangenheit, ikonischen Sehenswürdigkeiten wie dem Brandenburger Tor und der East Side Gallery 
+        sowie einer vielfältigen Kulturszene zieht Berlin Besucher aus aller Welt in ihren Bann.`,
 
     `   Kopenhagen, die Hauptstadt Dänemarks, verbindet skandinavisches Design mit entspannter Lebensart. 
-    Die farbenfrohen Häuser von Nyhavn, moderne Architektur, Fahrräder und Nachhaltigkeit prägen das Stadtbild – 
-    ein Ort, der Tradition und Innovation harmonisch vereint.`,
+        Die farbenfrohen Häuser von Nyhavn, moderne Architektur, Fahrräder und Nachhaltigkeit prägen das Stadtbild – 
+        ein Ort, der Tradition und Innovation harmonisch vereint.`,
 
     `   Istanbul, die Stadt auf zwei Kontinenten, ist ein Schmelztiegel der Kulturen. Zwischen Moscheen, Palästen, 
-    Basaren und modernen Cafés spürt man überall die reiche Geschichte des Osmanischen Reiches. 
-    Istanbul fasziniert durch seine Dynamik und Tiefe.`,
+        Basaren und modernen Cafés spürt man überall die reiche Geschichte des Osmanischen Reiches. 
+        Istanbul fasziniert durch seine Dynamik und Tiefe.`,
 
     `   Las Vegas, die Glitzermetropole in der Wüste Nevadas, steht für Unterhaltung pur. Von beeindruckenden Casinos 
-    über spektakuläre Shows bis zu funkelnden Hotels – in Las Vegas wird die Nacht zum Tag und jeder Besuch zum Erlebnis.`,
+        über spektakuläre Shows bis zu funkelnden Hotels – in Las Vegas wird die Nacht zum Tag und jeder Besuch zum Erlebnis.`,
 
     `   Linz, die drittgrößte Stadt Österreichs, liegt malerisch an der Donau und überrascht mit moderner Kunst, 
-    digitaler Innovation und historischer Architektur. Die Mischung aus Technik, Kultur und Natur macht Linz besonders lebenswert.`,
+        digitaler Innovation und historischer Architektur. Die Mischung aus Technik, Kultur und Natur macht Linz besonders lebenswert.`,
 
     `   Los Angeles, die Stadt der Engel, ist ein Zentrum für Film, Kunst und Lifestyle. Von den Stränden von Santa Monica 
-    bis zu den Studios von Hollywood bietet L.A. Sonne, Vielfalt und kreatives Flair in Hülle und Fülle.`,
+        bis zu den Studios von Hollywood bietet L.A. Sonne, Vielfalt und kreatives Flair in Hülle und Fülle.`,
 
     `   Mallorca, die größte Insel der Balearen, begeistert mit atemberaubenden Küsten, charmanten Dörfern 
-    und einer faszinierenden Mischung aus Natur und Kultur. Ob entspannter Strandurlaub, Wanderungen in der Serra de Tramuntana 
-    oder Erkundung der historischen Altstadt von Palma – Mallorca bietet für jeden etwas.`,
+        und einer faszinierenden Mischung aus Natur und Kultur. Ob entspannter Strandurlaub, Wanderungen in der Serra de Tramuntana 
+        oder Erkundung der historischen Altstadt von Palma – Mallorca bietet für jeden etwas.`,
 
     `   Paris, die Stadt der Liebe, verführt mit Eleganz, Romantik und Kunst. Vom Eiffelturm über den Louvre 
-    bis zu charmanten Straßencafés – Paris ist ein Fest für alle Sinne und ein Symbol europäischer Kultur.`,
+        bis zu charmanten Straßencafés – Paris ist ein Fest für alle Sinne und ein Symbol europäischer Kultur.`,
 
     `   Singapur, die Hightech-Metropole in Südostasien, verbindet beeindruckende Skyline mit tropischem Flair. 
-    Zwischen futuristischen Gärten, traditioneller Chinatown und kulinarischer Vielfalt zeigt sich Singapur als globaler Hotspot.`,
+        Zwischen futuristischen Gärten, traditioneller Chinatown und kulinarischer Vielfalt zeigt sich Singapur als globaler Hotspot.`,
 
     `   Stuttgart, eingebettet in Weinberge, ist das Herz der schwäbischen Region und bekannt für Automobilgeschichte, 
-    kulturelle Vielfalt und moderne Architektur. Ob Mercedes-Benz-Museum oder Schlossplatz – Stuttgart bietet urbane Eleganz und Tradition.`,
+        kulturelle Vielfalt und moderne Architektur. Ob Mercedes-Benz-Museum oder Schlossplatz – Stuttgart bietet urbane Eleganz und Tradition.`,
 
     `   Die Schweiz begeistert mit majestätischen Alpen, glasklaren Seen und einem hohen Lebensstandard. 
-    Städte wie Zürich, Genf oder Luzern vereinen Natur, Präzision und kulturelle Vielfalt auf kleinstem Raum.`,
+        Städte wie Zürich, Genf oder Luzern vereinen Natur, Präzision und kulturelle Vielfalt auf kleinstem Raum.`,
 
     `   Antalya, die Perle der türkischen Riviera, verbindet traumhafte Strände mit historischen Stätten 
-    wie dem Hadrianstor oder der Altstadt Kaleiçi. Sonne, Meer und orientalischer Charme machen Antalya zu einem beliebten Reiseziel.`,
+        wie dem Hadrianstor oder der Altstadt Kaleiçi. Sonne, Meer und orientalischer Charme machen Antalya zu einem beliebten Reiseziel.`,
 
     `   Dubai, die glitzernde Metropole in den Vereinigten Arabischen Emiraten, steht für Luxus, Innovation und Superlative. 
-    Vom Burj Khalifa bis zu künstlichen Inseln – Dubai beeindruckt mit futuristischem Städtebau und orientalischer Gastfreundschaft.`,
+        Vom Burj Khalifa bis zu künstlichen Inseln – Dubai beeindruckt mit futuristischem Städtebau und orientalischer Gastfreundschaft.`,
 
     `   İzmir, gelegen an der Westküste der Türkei, ist eine lebendige Hafenstadt mit einer reichen Geschichte, 
-    die bis in die Antike zurückreicht. Bekannt für ihr mildes Klima, die mediterrane Lebensart und ihre herzliche Atmosphäre, 
-    verbindet İzmir modernes Stadtleben mit antiken Wurzeln. Ob bei einem Spaziergang entlang der Küstenpromenade, beim Besuch des 
-    historischen Basars oder beim Entdecken antiker Stätten wie Ephesos in der Nähe – İzmir verzaubert mit Charme und Vielfalt.`
+        die bis in die Antike zurückreicht. Bekannt für ihr mildes Klima, die mediterrane Lebensart und ihre herzliche Atmosphäre, 
+        verbindet İzmir modernes Stadtleben mit antiken Wurzeln. Ob bei einem Spaziergang entlang der Küstenpromenade, beim Besuch des 
+        historischen Basars oder beim Entdecken antiker Stätten wie Ephesos in der Nähe – İzmir verzaubert mit Charme und Vielfalt.`,
+
+    `   Alanya, die sonnenverwöhnte Perle an der Türkischen Riviera, vereint mediterrane Gelassenheit mit historischem Charme.
+        Vom majestätischen Burgberg mit Blick auf die azurblaue Küste bis zu endlosen Sandstränden – Alanya begeistert mit malerischer Natur, 
+        lebendiger Kultur und herzlicher türkischer Gastfreundschaft.`,
 ];
 
 
@@ -115,6 +122,7 @@ let description = [
 /* Wird beim Laden der Seite aufgerufen, um den Inhalt direkt darzustellen. */
 function init() {
     render();
+    nav_mobile_function();
 }
 
 
@@ -144,13 +152,9 @@ function template(path, path2, path3, i) {
     </header>
 
     <figure>
-        <figcaption>
-            <p> Figcaption </p>
-        </figcaption>
-
         <img onclick="addOverlay(${i})" class="imgs_container_main" src="${path2}">
         
-        </figure>
+    </figure>
 
         <button class="show_more_btn" >${path3}</button>
 
@@ -159,7 +163,7 @@ function template(path, path2, path3, i) {
 }
 
 /* Gibt einen HTML-Dialog (Overlay) mit Details zum jeweiligen Artikel zurück.*/
-function dialog(path, path2, path3) {
+function dialog(path, path2, path3, i) {
     return `   
 
     <dialog id="dialog" class="dialog" >
@@ -171,12 +175,15 @@ function dialog(path, path2, path3) {
 
     <main class="dialog_main" >
     
-        <button onclick="arrow(i)" class="dialog_arrow_btn" > <= </button>
-        
+        <button id="arrow_left_btn" onclick="arrow_left(${i})" class="dialog_arrow_btn" > <= </button>
+        <button id="arrow_left_btn_disabled" class="dialog_arrow_btn" style="opacity : 0; pointer-events: none" disabled> <= </button>
+
+
         <img class="imgs_container_dialog" src="${path2}">
         
-        <button onclick="arrow(i)" class="dialog_arrow_btn"> => </button>
-    
+        <button id="arrow_right_btn" onclick="arrow_right(${i})" class="dialog_arrow_btn"> => </button>
+        <button id="arrow_right_btn_disabled" class="dialog_arrow_btn" style="opacity : 0; pointer-events: none" disabled> <= </button>
+
         </main>
 
         <p class="description_dialog">${path3}</p>
@@ -201,7 +208,32 @@ function addOverlay(i) {
     if (dialog_element) { /*  zeigt den Dialog als modales Fenster */
         dialog_element.showModal();
     }
+
+    if (i == 0) { /* Entfernt den linken button in der Index 0. */
+        let remove_left_btn = document.getElementById('arrow_left_btn');
+        remove_left_btn.remove();
+
+        let right_disable_btn = document.getElementById('arrow_right_btn_disabled')
+        right_disable_btn.remove();
+    }
+
+    if (i == 15) { /* Entfernt den rechten button in der Index 15. */
+        let remove_left_btn = document.getElementById('arrow_left_btn_disabled');
+        remove_left_btn.remove();
+
+        let remove_right_btn = document.getElementById('arrow_right_btn');
+        remove_right_btn.remove();
+    }
+
+    if (i >= 1 && i <= 14) {
+        let remove_left_btn = document.getElementById('arrow_left_btn_disabled');
+        remove_left_btn.remove();
+
+        let right_disable_btn = document.getElementById('arrow_right_btn_disabled')
+        right_disable_btn.remove();
+    }
 }
+
 
 function removeOverlay() {
     /*     Holt das Dialog-Container-Element*/
@@ -213,12 +245,21 @@ function removeOverlay() {
     }
 }
 
-/* Responsive Menü leiste. */
-
-function toogle_rest_menu() {
-    /* Öffnet oder schließt das responsive Menü, indem die CSS-Klasse entfernt oder hinzuugefügt wird*/
-    document.getElementById("resp_menu").classList.toggle("resp_menu_closed");
+function arrow_left(i) {
+    addOverlay.innerHTML = "";
+    addOverlay(i - 1);
+    addOverlay.innerHTML += dialog(headlines[i], imgs[i], description[i], i); /* Fügt ins HTML die function mit den Parametern.  */
 }
 
+function arrow_right(i) {
+    dialog.innerHTML = "";
+    addOverlay(i + 1);
+    addOverlay.innerHTML += dialog(headlines[i], imgs[i], description[i], i); /* Fügt ins HTML die function mit den Parametern.  */
+}
 
+/* Responsive Menü leiste. */
 
+function nav_mobile_function() {
+    let nav_main = document.getElementById("nav_mobile_main");
+    nav_main.classList.toggle("d_none");
+} 
