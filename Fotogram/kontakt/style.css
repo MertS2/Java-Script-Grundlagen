@@ -1,0 +1,291 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+@font-face {
+    font-family: "BitcountGridSingle_Regular";
+    src: url("../fonts/BitcountGridSingle-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Open_Sonc_Regular";
+    src: url("../fonts/OpenSans_Condensed-Regular.ttf");
+}
+
+
+h1 {
+    font-size: 50px;
+    font-family: "BitcountGridSingle_Regular";
+    color: white;
+}
+
+
+h2 {
+    font-size: 50px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+h3 {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h4 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    text-align: center;
+    font-family: "Open_Sonc_Regular";
+}
+
+p {
+    font-size: 15px;
+    font-family: "Open_Sonc_Regular";
+    padding-bottom: 15px;
+}
+
+#fotogram_logo {
+    width: 250px;
+}
+
+.d_none {
+    display: none;
+}
+
+main {
+    background-color: #054B96;
+    padding: 20px 100px;
+    min-height: 100vh;
+}
+
+.main_container {
+    padding: 20px 100px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.main_container_send_mail {
+    padding-top: 100px;
+    margin: 100px;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.fotter_main {
+    background-color: #003773;
+    height: 100px;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid black;
+
+    position: relative;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.header_main {
+    background-color: #003773;
+    width: 100%;
+    padding: 50px 20px;
+    border-bottom: 2px solid black;
+}
+
+.nav_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.nav_links_mobile {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    color: white;
+    text-decoration: none;
+    font-family: "Open_Sonc_Regular";
+}
+
+.nav_links_mobile:hover {
+    background-color: rgba(211, 211, 211, 0.178);
+    border-radius: 6px;
+}
+
+.nav_links_dektop {
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.nav_links_dektop:hover {
+    background-color: rgba(211, 211, 211, 0.404);
+    border-radius: 6px;
+}
+
+.mobile_nav_container {
+    display: none;
+}
+
+.mobile_nav_img {
+    width: 50px;
+    height: 50px;
+}
+
+.mobile_nav_img:hover {
+    background-color: darkgray;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.open_nav_mobile {
+    width: 100%;
+    height: 120px;
+    background-color: black;
+}
+
+input {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 4pc;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 2px solid black;
+}
+
+textarea {
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 4px;
+    border: 2px solid black;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.input_headline {
+    font-size: 30px;
+    font-family: "Open_Sonc_Regular";
+    text-align: center;
+}
+
+button {
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid black;
+}
+
+.submit {
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid black;
+    height: 50px;
+}
+
+.submit:hover {
+    cursor: pointer;
+    background-color: lightgray;
+}
+
+
+button:hover {
+    cursor: pointer;
+    background-color: lightgray;
+}
+
+@media(max-width: 1100px) {
+    #fotogram_logo {
+        display: none;
+    }
+}
+
+@media(max-width: 850px) {
+    .main_container {
+        padding: 10px 50px;
+    }
+
+    h2 {
+        font-size: 40px;
+    }
+}
+
+@media(max-width: 860px) {
+
+    .nav_links_dektop {
+        display: none;
+    }
+
+    .mobile_nav_container {
+        display: flex;
+    }
+
+    .main_container_send_mail {
+        margin: 50px;
+        padding-top: 50px;
+    }
+
+    .header_main {
+        padding: 25px 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .nav_container {
+        display: flex;
+        align-items: center;
+    }
+}
+
+@media(max-width: 600px) {
+    h1 {
+        font-size: 30px;
+    }
+}
+
+@media(max-width: 480px) {
+    main {
+        padding: 10px 50px;
+    }
+
+    .mobile_nav_img {
+        width: 40px;
+        height: 40px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+}
+
+@media(max-width: 350px) {
+    .mobile_nav_img {
+        width: 40px;
+        height: 40px;
+    }
+}

@@ -29,7 +29,7 @@ h2 {
     font-size: 50px;
     font-family: "Open_Sonc_Regular";
     text-align: center;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
 }
 
 h3 {
@@ -53,11 +53,14 @@ p {
 .nav_container {
     display: flex;
     justify-content: space-between;
-    align-content: center;
+    align-items: center;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 .nav_links_mobile {
     padding-top: 10px;
+    padding-bottom: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -70,7 +73,6 @@ p {
 .nav_links_mobile:hover {
     background-color: rgba(211, 211, 211, 0.178);
     border-radius: 6px;
-    padding: 15px;
 }
 
 #fotogram_logo {
@@ -104,18 +106,25 @@ main {
     align-items: center;
     justify-content: center;
     border-top: 1px solid black;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
 }
 
-.imgs_main {
+.main_container {
     padding: 40px;
     padding-left: 150px;
     padding-right: 150px;
     display: flex;
     flex-direction: row;
     gap: 50px;
-    max-width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
     flex-wrap: wrap;
     justify-content: space-around;
+    min-height: 100vh;
 }
 
 .imgs_container_main {
@@ -287,25 +296,22 @@ main {
     display: none;
 }
 
+@media(max-width: 1100px) {
+    #fotogram_logo {
+        display: none;
+    }
+}
+
 
 @media(max-width: 850px) {
-
-    h2 {
-        font-size: 30px;
-    }
 
     #fotogram_logo {
         display: none;
     }
 
     .dialog {
-        width: 550px;
-        height: 550px;
-    }
-
-    .dialog_main {
-        padding-left: 30px;
-        padding-right: 30px;
+        width: 650px;
+        height: 650px;
     }
 
     .description_dialog {
@@ -313,66 +319,12 @@ main {
     }
 
     .imgs_container_dialog {
-        width: 200px;
-        height: 200px;
+        width: 250px;
+        height: 250px;
     }
 }
 
-@media(max-width: 600px) {
-
-    h1 {
-        font-size: 40px;
-    }
-
-    .imgs_container_main {
-        width: 200px;
-        height: 200px;
-    }
-
-    .show_more_btn {
-        width: 200px;
-    }
-
-    .imgs_main {
-        padding-left: 50px;
-        padding-right: 50px;
-        padding: 20px;
-    }
-
-    .dialog {
-        width: 550px;
-        height: 550px;
-    }
-
-    .dialog_main {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-
-    .description_dialog {
-        font-size: 16px;
-        text-align: center;
-    }
-
-    .imgs_container_dialog {
-        width: 150px;
-        height: 150px;
-    }
-}
-
-@media(max-width: 490px) {
-
-    h1 {
-        font-size: 30px;
-    }
-
-    h2 {
-        font-size: 20px;
-    }
-
-    .header_main {
-        padding: 25px 10px;
-    }
+@media(max-width: 750px) {
 
     .nav_links_dektop {
         display: none;
@@ -386,9 +338,88 @@ main {
         display: flex;
         align-items: center;
     }
+
+    .description_dialog {
+        font-size: 14px;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
 }
 
-@media(max-width: 325px) {
+@media(max-width: 600px) {
+
+    h1 {
+        font-size: 40px;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    .imgs_container_main {
+        width: 250px;
+        height: 250px;
+    }
+
+    .show_more_btn {
+        width: 250px;
+    }
+
+    .main_container {
+        padding-left: 50px;
+        padding-right: 50px;
+        padding: 20px;
+    }
+
+    .dialog {
+        width: 400px;
+        height: 400px;
+    }
+
+    .dialog_main {
+        gap: 30px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .description_dialog {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .imgs_container_dialog {
+        width: 150px;
+        height: 150px;
+    }
+
+    .header_main {
+        padding: 25px 10px;
+    }
+
+    .dialog_arrow_btn {
+        font-size: 10px;
+        height: 30px;
+        width: 30px;
+    }
+}
+
+
+@media (max-width: 400px) {
+    .imgs_container_dialog {
+        width: 150px;
+        height: 150px;
+    }
+
+    .main_container {
+        padding-left: 25px;
+        padding-right: 25px;
+        padding: 10px;
+    }
+}
+
+
+
+@media(max-width: 350px) {
 
     .mobile_nav_img {
         width: 40px;

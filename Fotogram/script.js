@@ -122,21 +122,21 @@ let description = [
 /* Wird beim Laden der Seite aufgerufen, um den Inhalt direkt darzustellen. */
 function init() {
     render();
-    nav_mobile_function();
+    navMobileFunction();
 }
 
 
 function render() {
     /*Holt das HTML-Element mit der ID "main", um es später mit Inhalten zu füllen.*/
-    let main_content = document.getElementById("main");
+    let mainContent = document.getElementById("main");
 
     /* Setzt den Inhalt des Elements zurück, bevor neuer Inhalt eingefügt wird.*/
-    main_content.innerHTML = "";
+    mainContent.innerHTML = "";
 
 
     /* Schleife, die alle Bilder, Überschriften und Beschreibungen der Reihe nach einfügt.*/
     for (let i = 0; i < imgs.length; i++) {
-        main_content.innerHTML += template(headlines[i], imgs[i], show_more[i], i); /* Fügt ins HTML die function mit den Parametern.  */
+        mainContent.innerHTML += template(headlines[i], imgs[i], show_more[i], i); /* Fügt ins HTML die function mit den Parametern.  */
     }
 }
 
@@ -175,14 +175,12 @@ function dialog(path, path2, path3, i) {
 
     <main class="dialog_main" >
     
-        <button id="arrow_left_btn" onclick="arrow_left(${i})" class="dialog_arrow_btn" > <= </button>
-        <button id="arrow_left_btn_disabled" class="dialog_arrow_btn" style="opacity : 0; pointer-events: none" disabled> <= </button>
+        <button id="arrow_left_btn" onclick="arrowLeft(${i})" class="dialog_arrow_btn" > <= </button>
 
 
         <img class="imgs_container_dialog" src="${path2}">
         
-        <button id="arrow_right_btn" onclick="arrow_right(${i})" class="dialog_arrow_btn"> => </button>
-        <button id="arrow_right_btn_disabled" class="dialog_arrow_btn" style="opacity : 0; pointer-events: none" disabled> <= </button>
+        <button id="arrow_right_btn" onclick="arrowRight(${i})" class="dialog_arrow_btn"> => </button>
 
         </main>
 
@@ -190,48 +188,65 @@ function dialog(path, path2, path3, i) {
 
   </dialog>
   `
+    /* 
+    <button id = "arrow_right_btn_disabled" class="dialog_arrow_btn" style = "opacity : 0; pointer-events: none" disabled > <= </button >
+    <button id="arrow_left_btn_disabled" class="dialog_arrow_btn" style="opacity : 0; pointer-events: none" disabled> <= </button>
+    */
 }
 
 
 function addOverlay(i) {
     /* Holt das Dialog-Container-Element*/
-    let refAddoverlay = document.getElementById('dialog_container');
+    let refAddOverlay = document.getElementById('dialog_container');
 
     /*     Leert den vorherigen Inhal*/
-    refAddoverlay.innerHTML = "";
+    refAddOverlay.innerHTML = "";
 
     /*     Fügt den neuen Dialog mit den entsprechenden Inhalten ein*/
-    refAddoverlay.innerHTML += dialog(headlines[i], imgs[i], description[i], i); /* Fügt ins HTML die function mit den Parametern.  */
+    refAddOverlay.innerHTML += dialog(headlines[i], imgs[i], description[i], i); /* Fügt ins HTML die function mit den Parametern.  */
 
-    let dialog_element = document.getElementById('dialog');
+    let dialogElement = document.getElementById('dialog');
 
-    if (dialog_element) { /*  zeigt den Dialog als modales Fenster */
-        dialog_element.showModal();
+    if (dialogElement) { /*  zeigt den Dialog als modales Fenster */
+        dialogElement.showModal();
     }
 
-    if (i == 0) { /* Entfernt den linken button in der Index 0. */
-        let remove_left_btn = document.getElementById('arrow_left_btn');
-        remove_left_btn.remove();
-
-        let right_disable_btn = document.getElementById('arrow_right_btn_disabled')
-        right_disable_btn.remove();
+    if (i == 0) {
+        dialog(i = 15);
+        dialog.innerHTML = "";
+        dialog.innerHTML += dialog(headlines[i], imgs[i], description[i], i)
     }
 
-    if (i == 15) { /* Entfernt den rechten button in der Index 15. */
-        let remove_left_btn = document.getElementById('arrow_left_btn_disabled');
-        remove_left_btn.remove();
+    if (i == 15) {
+        dialog(i = 1);
+        dialog.innerHTML = "";
+        dialog.innerHTML += dialog(headlines[i], imgs[i], description[i], i)
+    }
 
-        let remove_right_btn = document.getElementById('arrow_right_btn');
-        remove_right_btn.remove();
+
+    /* if (i == 0) { Entfernt den linken button in der Index 0. 
+        let removeLeftBtn = document.getElementById('arrow_left_btn');
+        removeLeftBtn.remove();
+
+        let rightDisableBtn = document.getElementById('arrow_right_btn_disabled')
+        rightDisableBtn.remove();
+    }
+
+    if (i == 15) {  Entfernt den rechten button in der Index 15. 
+        let removeLeftBtn = document.getElementById('arrow_left_btn_disabled');
+        removeLeftBtn.remove();
+
+        let removeRightBtn = document.getElementById('arrow_right_btn');
+        removeRightBtn.remove();
     }
 
     if (i >= 1 && i <= 14) {
-        let remove_left_btn = document.getElementById('arrow_left_btn_disabled');
-        remove_left_btn.remove();
+        let removeLeftBtn = document.getElementById('arrow_left_btn_disabled');
+        removeLeftBtn.remove();
 
-        let right_disable_btn = document.getElementById('arrow_right_btn_disabled')
-        right_disable_btn.remove();
-    }
+        let rightDisableBtn = document.getElementById('arrow_right_btn_disabled')
+        rightDisableBtn.remove();
+    } */
 }
 
 
@@ -245,13 +260,13 @@ function removeOverlay() {
     }
 }
 
-function arrow_left(i) {
+function arrowLeft(i) {
     addOverlay.innerHTML = "";
     addOverlay(i - 1);
     addOverlay.innerHTML += dialog(headlines[i], imgs[i], description[i], i); /* Fügt ins HTML die function mit den Parametern.  */
 }
 
-function arrow_right(i) {
+function arrowRight(i) {
     dialog.innerHTML = "";
     addOverlay(i + 1);
     addOverlay.innerHTML += dialog(headlines[i], imgs[i], description[i], i); /* Fügt ins HTML die function mit den Parametern.  */
@@ -259,7 +274,7 @@ function arrow_right(i) {
 
 /* Responsive Menü leiste. */
 
-function nav_mobile_function() {
-    let nav_main = document.getElementById("nav_mobile_main");
-    nav_main.classList.toggle("d_none");
+function navMobileFunction() {
+    let nav = document.getElementById("nav_mobile_main");
+    nav.classList.toggle("d_none");
 } 

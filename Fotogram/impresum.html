@@ -17,10 +17,11 @@
 
             <nav class="dektop_nav_container">
                 <a class="nav_links_dektop" href="./index.html">Start</a>
+                <a class="nav_links_dektop" href="./kontakt/index.html">Kontaktformular</a>
             </nav>
 
             <nav class="mobile_nav_container">
-                <button onclick="nav_mobile_function()">
+                <button onclick="navMobileFunction()">
                     <img class="mobile_nav_img" src="./icons/bars-solid.svg" alt="">
                 </button>
             </nav>
@@ -93,9 +94,9 @@
     </footer>
 
     <script>
-        function nav_mobile_function() {
-            let nav_imp = document.getElementById("nav_mobile_impressum");
-            nav_imp.classList.toggle("d_none");
+        function navMobileFunction() {
+            let nav = document.getElementById("nav_mobile_impressum");
+            nav.classList.toggle("d_none");
         } 
     </script>
 

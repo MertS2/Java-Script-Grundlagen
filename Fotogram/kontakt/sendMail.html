@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <script src="./script.js"></script>
 </head>
 
 <body>
+
     <header class="header_main">
         <div class="nav_container">
             <img id="fotogram_logo" src="../icons/Fotogram_Logo.svg" alt="Fotogram_Logo">
 
-            <h1>Kontaktformular</h1>
+            <h1>Vielen Dank!</h1>
 
             <nav class="dektop_nav_container">
                 <a class="nav_links_dektop" href="../index.html">Start</a>
@@ -35,29 +35,24 @@
     </div>
 
     <main>
-        <section main_container>
-            <form onsubmit="sendMail(event)">
-                <label class="input_headline" for="firstname">Firstname:</label>
-                <input id="firstname" type="name" maxlength="23" required name="Firstname">
-
-                <label class="input_headline" for="lastname">Lastname:</label>
-                <input id="lastname" type="name" maxlength="23" required name="Lastname">
-
-                <label class="input_headline" for="mail">E-Mail:</label>
-                <input id="mail" type="email" required name="E-Mail">
-
-                <label class="input_headline" for="message">Nachricht:</label>
-                <textarea rows="10" id="message" maxlength="1000" required name="Message"></textarea>
-
-                <p>Maximal: 1000 Wörter</p>
-                <button class="submit" type="submit" value="submit">Senden</button>
-            </form>
+        <section class="main_container_send_mail">
+            <h4> Vielen Dank für Ihre Nachricht.<br>
+                Wir werden uns schnellstmöglich bei Ihnen melden.
+            </h4>
         </section>
     </main>
 
     <footer class="fotter_main">
         <h3> © 2025 Mert Sönmez</h3>
     </footer>
+
+    <script>
+        function navMobileFunction() {
+            let nav = document.getElementById("nav_mobile_contact");
+            nav.classList.toggle("d_none");
+        }
+    </script>
+
 </body>
 
 </html>
