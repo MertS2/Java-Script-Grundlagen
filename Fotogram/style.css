@@ -40,6 +40,8 @@ h3 {
 p {
     font-size: 20px;
     font-family: "Open_Sonc_Regular";
+    text-align: center;
+    padding-top: 10px;
 }
 
 
@@ -156,7 +158,6 @@ main {
 .dialog {
     /*    Das Element nimmt die ganze Breite seines Containers ein und beginnt in einer neuen Zeile */
     display: block;
-
     /* Das Element bleibt immer an einer festen Position auf dem Bildschirm,
     auch beim Scrollen der Seite  */
     position: fixed;
@@ -167,14 +168,28 @@ main {
     transform: translate(-50%, -50%);
 
     width: 700px;
-    height: 700px;
+    height: 800px;
     background-color: #054B96;
     border-radius: 4px;
 }
 
-.dialog::backdrop {
-    background-color: black;
+.show_more_dialog {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 400px;
+    height: 400px;
+    background-color: #054B96;
+    border-radius: 4px;
 }
+
+.show_more_dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
 
 .dialog::backdrop {
     background-color: rgba(0, 0, 0, 0.5);
@@ -182,22 +197,20 @@ main {
 
 .dialog_header {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-content: center;
     padding-bottom: 30px;
-    align-items: center;
+    padding-left: 30px;
+    padding-right: 30px;
     border-bottom: 2px solid black;
-    width: 60%;
-    /* Hier wird die Breite auf 60% gesetzt */
-    margin: 0 auto;
-    /* Zentriert das Element horizontal */
 }
 
 .close_button {
     background-color: white;
     font-size: 25px;
     border: 1px solid black;
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 60px;
     background-color: #054B96;
     border-radius: 4px;
     color: white;
@@ -296,6 +309,27 @@ main {
     display: none;
 }
 
+.hidden {
+    overflow-y: hidden;
+}
+
+.counter_number {
+    border: 1px solid black;
+    margin-top: 10px;
+    padding: 10px 10px;
+    border-radius: 15px;
+    width: 100px;
+    background-color: #054386;
+    cursor: default;
+}
+
+
+.dialog_footer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 @media(max-width: 1100px) {
     #fotogram_logo {
         display: none;
@@ -311,7 +345,7 @@ main {
 
     .dialog {
         width: 650px;
-        height: 650px;
+        height: 700px;
     }
 
     .description_dialog {
@@ -322,9 +356,6 @@ main {
         width: 250px;
         height: 250px;
     }
-}
-
-@media(max-width: 750px) {
 
     .nav_links_dektop {
         display: none;
@@ -338,6 +369,10 @@ main {
         display: flex;
         align-items: center;
     }
+}
+
+@media(max-width: 750px) {
+
 
     .description_dialog {
         font-size: 14px;
@@ -346,7 +381,7 @@ main {
     }
 }
 
-@media(max-width: 600px) {
+@media(max-width: 670px) {
 
     h1 {
         font-size: 40px;
@@ -373,13 +408,13 @@ main {
 
     .dialog {
         width: 400px;
-        height: 400px;
     }
 
     .dialog_main {
         gap: 30px;
         padding-left: 40px;
         padding-right: 40px;
+        justify-content: center;
     }
 
     .description_dialog {
@@ -395,34 +430,65 @@ main {
     .header_main {
         padding: 25px 10px;
     }
+}
+
+
+@media (max-width: 450px) {
+
+    .description_dialog {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .imgs_container_main {
+        width: 250px;
+        height: 250px;
+    }
+
+    .dialog_main {
+        gap: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .imgs_container_dialog {
+        width: 100px;
+        height: 100px;
+    }
 
     .dialog_arrow_btn {
-        font-size: 10px;
-        height: 30px;
-        width: 30px;
-    }
-}
-
-
-@media (max-width: 400px) {
-    .imgs_container_dialog {
-        width: 150px;
-        height: 150px;
-    }
-
-    .main_container {
-        padding-left: 25px;
-        padding-right: 25px;
-        padding: 10px;
+        font-size: 16px;
+        height: 50px;
+        width: 50px;
     }
 }
 
 
 
-@media(max-width: 350px) {
+@media(max-width: 370px) {
 
     .mobile_nav_img {
         width: 40px;
         height: 40px;
+    }
+
+    .dialog {
+        height: 750px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+}
+
+@media(max-width: 340px) {
+    h2 {
+        font-size: 23px;
+    }
+}
+
+@media(max-width: 320) {
+    .dialog {
+        height: 800px;
     }
 }
