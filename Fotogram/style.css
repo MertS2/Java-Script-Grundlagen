@@ -27,6 +27,7 @@ h1 {
 
 h2 {
     font-size: 50px;
+    padding-top: 10px;
     font-family: "Open_Sonc_Regular";
     text-align: center;
     padding-bottom: 30px;
@@ -36,6 +37,34 @@ h3 {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+
+h4 {
+    font-size: 30px;
+    padding-top: 15px;
+    font-family: "Open_Sonc_Regular";
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+h5 {
+    font-size: 20px;
+    padding-top: 15px;
+    font-family: "Open_Sonc_Regular";
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+h6 {
+
+    font-size: 50px;
+    padding-top: 10px;
+    font-family: "Open_Sonc_Regular";
+    text-align: center;
+    padding-bottom: 30px;
+
+}
+
 
 p {
     font-size: 20px;
@@ -179,9 +208,8 @@ main {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
     width: 400px;
-    height: 400px;
+    height: 600;
     background-color: #054B96;
     border-radius: 4px;
 }
@@ -203,6 +231,15 @@ main {
     padding-left: 30px;
     padding-right: 30px;
     border-bottom: 2px solid black;
+}
+
+.show_more_header {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 .close_button {
@@ -266,7 +303,9 @@ main {
     font-size: 20px;
     width: 300px;
     border: 1px solid black;
-    border-radius: 4px;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 10px;
 }
 
 .show_more_btn:hover {
@@ -323,12 +362,27 @@ main {
     cursor: default;
 }
 
+.nextButton_stlye {
+    background-color: #003773;
+    border: 1px solid black;
+    margin-top: 10px;
+    padding: 10px 10px;
+    border-radius: 15px;
+    width: 100px;
+}
+
+.nextButton_stlye:hover {
+    background-color: #054386;
+    cursor: pointer;
+}
 
 .dialog_footer {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
+
+
 
 @media(max-width: 1100px) {
     #fotogram_logo {
@@ -391,15 +445,6 @@ main {
         font-size: 30px;
     }
 
-    .imgs_container_main {
-        width: 250px;
-        height: 250px;
-    }
-
-    .show_more_btn {
-        width: 250px;
-    }
-
     .main_container {
         padding-left: 50px;
         padding-right: 50px;
@@ -409,6 +454,7 @@ main {
     .dialog {
         width: 400px;
     }
+
 
     .dialog_main {
         gap: 30px;
@@ -422,11 +468,6 @@ main {
         text-align: center;
     }
 
-    .imgs_container_dialog {
-        width: 150px;
-        height: 150px;
-    }
-
     .header_main {
         padding: 25px 10px;
     }
@@ -438,11 +479,6 @@ main {
     .description_dialog {
         font-size: 16px;
         text-align: center;
-    }
-
-    .imgs_container_main {
-        width: 250px;
-        height: 250px;
     }
 
     .dialog_main {
@@ -463,9 +499,18 @@ main {
     }
 }
 
-
-
 @media(max-width: 370px) {
+
+    .imgs_container_main {
+        width: 200px;
+        height: 200px;
+    }
+
+    .show_more_btn {
+        width: 200px;
+    }
+
+
 
     .mobile_nav_img {
         width: 40px;

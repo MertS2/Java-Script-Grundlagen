@@ -180,9 +180,9 @@ function render() {
 function template(path, path2, path3, i) {
     return `   
 
-    <header>
     <article>
-        <h2>${path}</h2>
+    <header>
+        <h6>${path}</h6>
     </header>
 
     <figure>
@@ -190,6 +190,7 @@ function template(path, path2, path3, i) {
         
     </figure>
         <button id="show_more_btn" onclick="showMoreDialog(${i})" class="show_more_btn">${path3}</button>
+
     </article>
     `
 }
@@ -231,14 +232,14 @@ function dialog(path, path2, path3, i) {
 function showMoreTemplate(i) {
     return `
     <dialog class="show_more_dialog" id="show_more_container">
-    <header class="dialog_header_show_more">
-    <h2> Achtung </h2>
+    <header class="show_more_header">
+    <h4> Achtung </h4>
     <button class="close_button" onclick="removeOverlay()">X</button>
     </header>
     <main>
 
-    <h4> Achtung, dieser Link geht auf einer externe Seite. </h4>
-    <h4> Klicken Sie auf OK, wenn sie einverstanden sind, wenn nicht schließen sie den Dialog</h4>
+    <h5> Achtung, dieser Link geht auf einer externe Seite. </h5>
+    <h5> Klicken Sie auf OK, wenn sie einverstanden sind, wenn nicht schließen sie den Dialog </h5>
     <div class="dialog_footer">
     <button id="next_show_more_btn" class="nextButton_stlye" onclick="nextButton(${i})">Ja</button>
     <button onclick="removeOverlay()" class="nextButton_stlye">Nein</button>
