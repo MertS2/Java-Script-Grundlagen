@@ -180,8 +180,8 @@ function render() {
 function template(path, path2, path3, i) {
     return `   
 
-    <article>
     <header>
+    <article>
         <h2>${path}</h2>
     </header>
 
@@ -189,7 +189,7 @@ function template(path, path2, path3, i) {
         <img onclick="addOverlay(${i})" class="imgs_container_main" src="${path2}">
         
     </figure>
-        <button id="show_more_btn" onclick="showMoreDialog()" class="show_more_btn">${path3}</button>
+        <button id="show_more_btn" onclick="showMoreDialog(${i})" class="show_more_btn">${path3}</button>
     </article>
     `
 }
@@ -228,34 +228,41 @@ function dialog(path, path2, path3, i) {
     */
 }
 
-function showMoreTemplate() {
+function showMoreTemplate(i) {
     return `
     <dialog class="show_more_dialog" id="show_more_container">
-    <header>
+    <header class="dialog_header_show_more">
+    <h2> Achtung </h2>
     <button class="close_button" onclick="removeOverlay()">X</button>
     </header>
     <main>
 
-    <h5> Achtung, dieser Link geht auf einer externe Seite. </h5>
-    <h5> Klicken Sie auf OK, wenn sie einverstanden sind, wenn nicht schließen sie den Dialog über den X Button</h5>
-   
-    <button>Weiter</button>
+    <h4> Achtung, dieser Link geht auf einer externe Seite. </h4>
+    <h4> Klicken Sie auf OK, wenn sie einverstanden sind, wenn nicht schließen sie den Dialog</h4>
+    <div class="dialog_footer">
+    <button id="next_show_more_btn" class="nextButton_stlye" onclick="nextButton(${i})">Ja</button>
+    <button onclick="removeOverlay()" class="nextButton_stlye">Nein</button>
+    </div>
     </dialog>`
-
-
 }
 
-function showMoreDialog() {
+function nextButton(i) {
+    let next = document.getElementById('next_show_more_btn');
+
+    if (next) {
+        window.location.href = site[i];
+    }
+}
+
+function showMoreDialog(i) {
     let show = document.getElementById('dialog_container');
-    show.innerHTML = showMoreTemplate();
+    show.innerHTML = showMoreTemplate(i);
 
     let dialogElement = document.getElementById('show_more_container');
-
 
     if (dialogElement) {
         dialogElement.showModal();
     }
-
 }
 
 
@@ -296,23 +303,23 @@ function addOverlay(i) {
     /* if (i == 0) { Entfernt den linken button in der Index 0. 
         let removeLeftBtn = document.getElementById('arrow_left_btn');
         removeLeftBtn.remove();
-
+ 
         let rightDisableBtn = document.getElementById('arrow_right_btn_disabled')
         rightDisableBtn.remove();
     }
-
+ 
     if (i == 15) {  Entfernt den rechten button in der Index 15. 
         let removeLeftBtn = document.getElementById('arrow_left_btn_disabled');
         removeLeftBtn.remove();
-
+ 
         let removeRightBtn = document.getElementById('arrow_right_btn');
         removeRightBtn.remove();
     }
-
+ 
     if (i >= 1 && i <= 14) {
         let removeLeftBtn = document.getElementById('arrow_left_btn_disabled');
         removeLeftBtn.remove();
-
+ 
         let rightDisableBtn = document.getElementById('arrow_right_btn_disabled')
         rightDisableBtn.remove();
     } */
