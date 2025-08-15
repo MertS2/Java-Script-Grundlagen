@@ -23,7 +23,7 @@
             </nav>
 
             <nav class="mobile_nav_container">
-                <button onclick="navMobileFunction()">
+                <button class="navButton" onclick="navMobileFunction()">
                     <img class="mobile_nav_img" src="../icons/bars-solid.svg" alt="">
                 </button>
             </nav>
@@ -36,16 +36,16 @@
     </div>
 
     <main>
-        <section main_container>
-            <form onsubmit="sendMail(i)">
+        <section>
+            <form onsubmit="sendMail(event)">
                 <label class="input_headline" for="firstname">Firstname:</label>
-                <input id="firstname" type="name" maxlength="23" required name="Firstname">
+                <input id="firstname" type="name" maxlength="23" required name="Firstname" placeholder="Firstname">
 
                 <label class="input_headline" for="lastname">Lastname:</label>
-                <input id="lastname" type="name" maxlength="23" required name="Lastname">
+                <input id="lastname" type="name" maxlength="23" required name="Lastname" placeholder="Lastname">
 
                 <label class="input_headline" for="mail">E-Mail:</label>
-                <input id="mail" type="email" required name="E-Mail">
+                <input id="mail" type="email" required name="E-Mail" placeholder="E-Mail">
 
                 <label class="input_headline" for="message">Nachricht:</label>
                 <textarea rows="10" id="message" maxlength="1000" required name="Message"></textarea>
