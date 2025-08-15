@@ -249,8 +249,9 @@ function showMoreTemplate(i) {
 }
 
 function escDialogClose() {
+
     document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
+        if (event.key = "Escape") {
             removeOverlay();
         }
     });
@@ -272,7 +273,12 @@ function showMoreDialog(i) {
 
     if (dialogElement) {
         dialogElement.showModal();
+        document.body.classList.add("hidden")
+    } else {
+        document.body.classList.remove("hidden")
+        document.body.style.overflowY = "scroll";
     }
+} 
 }
 
 
@@ -294,6 +300,7 @@ function addOverlay(i) {
     }
 
 
+
     /*     Fügt den neuen Dialog mit den entsprechenden Inhalten ein*/
     refAddOverlay.innerHTML += dialog(headlines[i], imgs[i], description[i], i); /* Fügt ins HTML die function mit den Parametern.  */
 
@@ -301,7 +308,12 @@ function addOverlay(i) {
 
     if (dialogElement) { /*  zeigt den Dialog als modales Fenster */
         dialogElement.showModal();
+        document.body.classList.add("hidden")
+    } else {
+        document.body.classList.remove("hidden")
+        document.body.style.overflowY = "scroll";
     }
+
 
     /*    if (refAddOverlay) {
            document.body.classList.add("hidden");

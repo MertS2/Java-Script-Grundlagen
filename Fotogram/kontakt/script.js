@@ -1,10 +1,10 @@
-function sendMail(event) {
-    event.preventDefault();
-    const data = new FormData(event.target);
+function sendMail(i) {
+    i.preventDefault();
+    const data = new FormData(i.target);
 
     fetch("https://formspree.io/f/mpwlbjwq", {
         method: "POST",
-        body: new FormData(event.target),
+        body: new FormData(i.target),
         headers: {
             'Accept': 'application/json'
         }
