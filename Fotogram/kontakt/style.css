@@ -61,7 +61,7 @@ p {
 main {
     background-color: #054B96;
     padding: 20px 100px;
-    min-height: 80vh;
+    min-height: 100vb;
 }
 
 .main_container {
