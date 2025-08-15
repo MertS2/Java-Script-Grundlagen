@@ -233,6 +233,9 @@ function dialog(path, path2, path3, i) {
 
 function showMoreTemplate(i) {
     return `
+
+
+
     <dialog class="show_more_dialog" id="show_more_container">
     <header class="show_more_header">
     <h4> Achtung </h4>
@@ -245,7 +248,7 @@ function showMoreTemplate(i) {
     <div class="dialog_footer">
     <button id="next_show_more_btn" class="nextButton_stlye" onclick="nextButton(${i})">Ja</button>
     <button onclick="removeOverlay()" class="nextButton_stlye">Nein</button>
-    </div>
+  </main>
     </dialog>`
 }
 
