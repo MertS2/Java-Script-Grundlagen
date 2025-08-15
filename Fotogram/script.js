@@ -158,6 +158,7 @@ let site = [
 function init() {
     render();
     navMobileFunction();
+    escDialogClose();
 }
 
 
@@ -239,12 +240,20 @@ function showMoreTemplate(i) {
     <main>
 
     <h5> Achtung, dieser Link geht auf einer externe Seite. </h5>
-    <h5> Klicken Sie auf OK, wenn sie einverstanden sind, wenn nicht schließen sie den Dialog </h5>
+    <h5> Klicken Sie auf Ja, wenn sie einverstanden sind, wenn nicht schließen sie den Dialog </h5>
     <div class="dialog_footer">
     <button id="next_show_more_btn" class="nextButton_stlye" onclick="nextButton(${i})">Ja</button>
     <button onclick="removeOverlay()" class="nextButton_stlye">Nein</button>
     </div>
     </dialog>`
+}
+
+function escDialogClose() {
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            removeOverlay();
+        }
+    });
 }
 
 function nextButton(i) {

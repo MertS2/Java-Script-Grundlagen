@@ -209,7 +209,7 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
-    height: 600;
+    height: 500px;
     background-color: #054B96;
     border-radius: 4px;
 }
@@ -236,7 +236,7 @@ main {
 .show_more_header {
     display: flex;
     justify-content: space-between;
-    align-content: center;
+    align-items: center;
     padding-bottom: 30px;
     padding-left: 30px;
     padding-right: 30px;
@@ -294,6 +294,7 @@ main {
     border: 1px solid black;
     border-radius: 8px;
     padding-top: 15px;
+    margin-bottom: 15px;
 }
 
 .show_more_btn {
@@ -399,7 +400,7 @@ main {
 
     .dialog {
         width: 650px;
-        height: 700px;
+        height: 750px;
     }
 
     .description_dialog {
@@ -451,11 +452,6 @@ main {
         padding: 20px;
     }
 
-    .dialog {
-        width: 400px;
-    }
-
-
     .dialog_main {
         gap: 30px;
         padding-left: 40px;
@@ -471,11 +467,15 @@ main {
     .header_main {
         padding: 25px 10px;
     }
+
+    .imgs_container_dialog {
+        width: 200px;
+        height: 200px;
+    }
 }
 
 
-@media (max-width: 450px) {
-
+@media (max-width: 500px) {
     .description_dialog {
         font-size: 16px;
         text-align: center;
@@ -487,15 +487,23 @@ main {
         padding-right: 20px;
     }
 
-    .imgs_container_dialog {
-        width: 100px;
-        height: 100px;
-    }
-
     .dialog_arrow_btn {
         font-size: 16px;
         height: 50px;
         width: 50px;
+    }
+
+    .imgs_container_dialog {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media(max-width: 400px) {
+
+    .imgs_container_dialog {
+        width: 100px;
+        height: 100px;
     }
 }
 
@@ -510,29 +518,32 @@ main {
         width: 200px;
     }
 
-
-
     .mobile_nav_img {
         width: 40px;
         height: 40px;
     }
 
     .dialog {
-        height: 750px;
+        height: 850px;
     }
 
     h1 {
         font-size: 30px;
     }
+
 }
 
 @media(max-width: 340px) {
     h2 {
         font-size: 23px;
     }
-}
 
-@media(max-width: 320) {
+    .dialog_arrow_btn {
+        font-size: 16px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
     .dialog {
         height: 800px;
     }

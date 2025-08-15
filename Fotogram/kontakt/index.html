@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Kontaktformular</title>
+    <link rel="icon" type="image/x-icon" href="../icons/favicon.svg">
     <link rel="stylesheet" href="style.css">
     <script src="./script.js"></script>
 </head>
@@ -36,7 +37,7 @@
 
     <main>
         <section main_container>
-            <form onsubmit="sendMail(event)">
+            <form onsubmit="sendMail(i)">
                 <label class="input_headline" for="firstname">Firstname:</label>
                 <input id="firstname" type="name" maxlength="23" required name="Firstname">
 
@@ -49,7 +50,8 @@
                 <label class="input_headline" for="message">Nachricht:</label>
                 <textarea rows="10" id="message" maxlength="1000" required name="Message"></textarea>
 
-                <p>Maximal: 1000 Wörter</p>
+                <p> Maximal: 1000 Wörter</p>
+
                 <button class="submit" type="submit" value="submit">Senden</button>
             </form>
         </section>
@@ -59,4 +61,5 @@
         <h3> © 2025 Mert Sönmez</h3>
     </footer>
 </body>
+
 </html>
