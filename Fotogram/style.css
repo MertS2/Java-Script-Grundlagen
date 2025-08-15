@@ -346,7 +346,7 @@ main {
 }
 
 .d_none {
-    display: none;
+    display: none !important;
 }
 
 .hidden {
