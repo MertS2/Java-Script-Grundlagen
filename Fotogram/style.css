@@ -362,10 +362,11 @@ main {
 }
 
 .nextButton_stlye {
+    font-size: 20px;
     background-color: #003773;
     border: 1px solid black;
     margin-top: 10px;
-    padding: 10px 10px;
+    padding: 15px 15px;
     border-radius: 15px;
     width: 100px;
 }
