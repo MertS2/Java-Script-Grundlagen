@@ -225,6 +225,7 @@ function dialog(path, path2, path3, i) {
   </dialog>
   `
     /* 
+    ---------------------------------------Function variante für index 0 left button entfernen und letzer button right entfernen.  ----------------------------------------------
     <button id = "arrow_right_btn_disabled" class="dialog_arrow_btn" style = "opacity : 0; pointer-events: none" disabled > <= </button >
     <button id="arrow_left_btn_disabled" class="dialog_arrow_btn" style="opacity : 0; pointer-events: none" disabled> <= </button>
     */
@@ -249,9 +250,8 @@ function showMoreTemplate(i) {
 }
 
 function escDialogClose() {
-
     document.addEventListener("keydown", (event) => {
-        if (event.key = "Escape") {
+        if (event.key === "Escape") {
             removeOverlay();
         }
     });
@@ -273,12 +273,8 @@ function showMoreDialog(i) {
 
     if (dialogElement) {
         dialogElement.showModal();
-        document.body.classList.add("hidden")
-    } else {
-        document.body.classList.remove("hidden")
-        document.body.style.overflowY = "scroll";
+        document.body.classList.add('hidden');
     }
-} 
 }
 
 
@@ -300,7 +296,6 @@ function addOverlay(i) {
     }
 
 
-
     /*     Fügt den neuen Dialog mit den entsprechenden Inhalten ein*/
     refAddOverlay.innerHTML += dialog(headlines[i], imgs[i], description[i], i); /* Fügt ins HTML die function mit den Parametern.  */
 
@@ -308,14 +303,12 @@ function addOverlay(i) {
 
     if (dialogElement) { /*  zeigt den Dialog als modales Fenster */
         dialogElement.showModal();
-        document.body.classList.add("hidden")
-    } else {
-        document.body.classList.remove("hidden")
-        document.body.style.overflowY = "scroll";
+        document.body.classList.add('hidden');
     }
 
-
-    /*    if (refAddOverlay) {
+    /*    
+    ---------------------------------------- Fünction für index 0 =  left button remove and letzer Index right remove.----------------------------------------------------------
+    if (refAddOverlay) {
            document.body.classList.add("hidden");
        } else {
            document.body.classList.remove("hidden");
@@ -344,7 +337,9 @@ function addOverlay(i) {
  
         let rightDisableBtn = document.getElementById('arrow_right_btn_disabled')
         rightDisableBtn.remove();
-    } */
+    } 
+        ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        */
 }
 
 
@@ -355,6 +350,8 @@ function removeOverlay() {
     /*     Wenn das Element existiert, Leert der den vorherigen Inhal*/
     if (refRemoveOverlay) {
         refRemoveOverlay.innerHTML = "";
+        document.body.classList.remove('hidden');
+
     }
 }
 

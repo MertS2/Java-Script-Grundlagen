@@ -44,9 +44,10 @@ h4 {
 }
 
 p {
-    font-size: 15px;
+    font-size: 16px;
     font-family: "Open_Sonc_Regular";
     padding-bottom: 15px;
+    text-align: center;
 }
 
 #fotogram_logo {
@@ -60,7 +61,7 @@ p {
 main {
     background-color: #054B96;
     padding: 20px 100px;
-    min-height: 100vh;
+    min-height: 80vh;
 }
 
 .main_container {
@@ -203,28 +204,31 @@ form {
     text-align: center;
 }
 
-button {
+.navButton {
     width: 100%;
     border-radius: 4px;
     border: 1px solid black;
 }
 
+.navButton:hover {
+    cursor: pointer;
+    background-color: lightgray;
+}
+
 .submit {
-    width: 100%;
-    border-radius: 4px;
+    background-color: #003773;
+    color: white;
+    font-size: 20px;
+    width: auto;
     border: 1px solid black;
-    height: 50px;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 10px;
 }
 
 .submit:hover {
     cursor: pointer;
-    background-color: lightgray;
-}
-
-
-button:hover {
-    cursor: pointer;
-    background-color: lightgray;
+    background-color: #054386;
 }
 
 @media(max-width: 1100px) {
@@ -305,4 +309,5 @@ button:hover {
     h1 {
         font-size: 18px;
     }
+
 }
