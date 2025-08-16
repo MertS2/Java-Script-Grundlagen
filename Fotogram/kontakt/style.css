@@ -55,7 +55,7 @@ p {
 }
 
 .d_none {
-    display: none !important;
+    display: none;
 }
 
 main {

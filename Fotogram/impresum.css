@@ -62,11 +62,12 @@ p {
 }
 
 .d_none {
-    display: none !important;
+    display: none;
 }
 
 main {
     background-color: #054B96;
+    min-height: calc(100vh - 250px);
 }
 
 .main_container {
@@ -76,8 +77,6 @@ main {
     flex-direction: column;
     max-width: 1440px;
     margin: 0 auto;
-    min-height: 100vh;
-
 }
 
 .fotter_main {

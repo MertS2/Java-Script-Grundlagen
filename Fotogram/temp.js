@@ -1,4 +1,3 @@
-/* Gibt einen HTML-Block für einen Artikel zurück (Überschrift, Bild und Beschreibung).*/
 function template(path, path2, path3, i) {
     return `   
 
@@ -17,7 +16,6 @@ function template(path, path2, path3, i) {
     `
 }
 
-/* Gibt einen HTML-Dialog (Overlay) mit Details zum jeweiligen Artikel zurück.*/
 function dialog(path, path2, path3, i) {
     return `   
 
@@ -49,6 +47,7 @@ function dialog(path, path2, path3, i) {
 
 function showMoreTemplate(i) {
     return `
+
     <dialog class="show_more_dialog" id="show_more_container">
     <header class="show_more_header">
     <h4> Achtung </h4>
@@ -62,5 +61,6 @@ function showMoreTemplate(i) {
     <button id="next_show_more_btn" class="nextButton_stlye" onclick="nextButton(${i})">Ja</button>
     <button onclick="removeOverlay()" class="nextButton_stlye">Nein</button>
   </main>
-    </dialog>`
+    </dialog>
+    `
 }

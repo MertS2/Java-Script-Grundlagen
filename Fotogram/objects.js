@@ -1,7 +1,8 @@
 let show_more = "show mroe";
 
-let objects = [{
-    headlines: "Belgien",
+let objects = [
+    {
+    headline: "Belgien",
     image: "./assets/belgium-4966646_1280.jpg",
     show_more,
     description:

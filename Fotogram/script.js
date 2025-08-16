@@ -1,21 +1,14 @@
-
-/* Wird beim Laden der Seite aufgerufen, um den Inhalt direkt darzustellen. */
 function init() {
     render();
-    navMobileFunction();
     escDialogClose();
 }
 
 
 function render() {
-    /*Holt das HTML-Element mit der ID "main", um es später mit Inhalten zu füllen.*/
     let mainContent = document.getElementById("main");
 
-    /* Setzt den Inhalt des Elements zurück, bevor neuer Inhalt eingefügt wird.*/
     mainContent.innerHTML = "";
 
-
-    /* Schleife, die alle Bilder, Überschriften und Beschreibungen der Reihe nach einfügt.*/
     for (let i = 0; i < objects.length; i++) {
         mainContent.innerHTML += template(objects[i].headline, objects[i].image, objects[i].show_more, i);
     }
@@ -50,10 +43,8 @@ function showMoreDialog(i) {
 }
 
 function addOverlay(i) {
-    /* Holt das Dialog-Container-Element*/
     let refAddOverlay = document.getElementById('dialog_container');
 
-    /*     Leert den vorherigen Inhal*/
     refAddOverlay.innerHTML = "";
 
     if (i == -1) {
@@ -66,23 +57,19 @@ function addOverlay(i) {
         refAddOverlay.innerHTML = "";
     }
 
-
-    /*     Fügt den neuen Dialog mit den entsprechenden Inhalten ein*/
     refAddOverlay.innerHTML += dialog(objects[i].headline, objects[i].image, objects[i].description, i); /* Fügt ins HTML die function mit den Parametern.  */
 
     let dialogElement = document.getElementById('dialog');
 
-    if (dialogElement) { /*  zeigt den Dialog als modales Fenster */
+    if (dialogElement) { 
         dialogElement.showModal();
         document.body.classList.add('hidden');
     }
 }
 
 function removeOverlay() {
-    /*     Holt das Dialog-Container-Element*/
     let refRemoveOverlay = document.getElementById('dialog_container'); /* spricht man die Id an. */
 
-    /*     Wenn das Element existiert, Leert der den vorherigen Inhal*/
     if (refRemoveOverlay) {
         refRemoveOverlay.innerHTML = "";
         document.body.classList.remove('hidden');
@@ -102,7 +89,6 @@ function arrowRight(i) {
     addOverlay.innerHTML += dialog(objects[i].headline, objects[i].image, objects[i].description, i); /* Fügt ins HTML die function mit den Parametern.  */
 }
 
-/* Responsive Menü leiste. */
 
 function navMobileFunction() {
     let nav = document.getElementById("nav_mobile_main");
