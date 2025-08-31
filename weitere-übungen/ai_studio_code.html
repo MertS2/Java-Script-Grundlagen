@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript & DOM - Neue Übung</title>
+
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 50px 100px;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        /* Diese Container sind die Ziele für deine JavaScript-Manipulationen */
+        #rezept-anzeige,
+        #einkaufsliste,
+        #avatar-container,
+        #gaestebuch {
+            border: 1px dashed #ccc;
+            padding: 20px;
+            margin-top: 20px;
+            min-height: 50px;
+            background-color: #f9f9f9;
+        }
+
+        /* Ein kleiner Stil für den Avatar, den du in Aufgabe 3 erstellst */
+        .avatar {
+            margin-top: 10px;
+            padding: 20px;
+            background-color: steelblue;
+            color: white;
+            border-radius: 8px;
+            display: inline-block;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            margin-bottom: 10px;
+            padding: 8px;
+            width: 250px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Übung: Dynamische Web-Elemente</h1>
+    <p>Erledige die folgenden Aufgaben, um deine Fähigkeiten in JavaScript zu trainieren. Du musst alle Buttons,
+        Eingabefelder und JavaScript-Funktionen selbst erstellen.</p>
+
+    <!-- HIER beginnt dein JavaScript-Code -->
+    <script>
+        // Dein gesamter JavaScript-Code kommt hier hinein.
+
+        let benutzername = 'Gast'; // Diese Variable ist für Aufgabe 3.
+
+        /* Aufgabe 1  */
+        function Pfannkuchen() {
+            document.getElementById('rezept-anzeige').innerHTML =
+                `Pfankuchen Rezept`
+        }
+
+        function Apfelkuchen() {
+            document.getElementById('rezept-anzeige').innerHTML =
+                `Apfelkuchen Rezept`
+        }
+
+        function Bananenbrot() {
+            document.getElementById('rezept-anzeige').innerHTML =
+                `Bananenbrot Rezept`
+        }
+
+        function Tostbrot() {
+            document.getElementById('rezept-anzeige').innerHTML =
+                `Tostbrot Rezept.`
+        }
+
+        function clean() {
+            document.getElementById('rezept-anzeige').innerHTML = ``;
+        }
+        /* Aufgabe 2  */
+        function addfood(food) {
+            let addFoood = document.getElementById('einkaufsliste').innerHTML +=
+                `<br> ${food} </br>`;
+        }
+
+        function clean2() {
+            document.getElementById('einkaufsliste').innerHTML = ``;
+        }
+
+
+        /* Aufgabe 3 */
+        function zeigAvatar(name) {
+            document.getElementById('avatar-container').innerHTML =
+                `Name = ${name}`
+        }
+
+        function changeName(name) {
+            benutzername = name;
+        }
+
+        function senInput() {
+            let name = document.getElementById('name').value;
+            let nachricht = document.getElementById('nachricht').value;
+
+            let input = document.getElementById('gaestebuch').innerHTML =
+
+                `<b> Der Gast: ${name},<br>
+                hat diese Nachricht geschrieben. ${nachricht} 
+                </b> `;
+
+            name = document.getElementById('name').value = ``;
+            nachricht = document.getElementById('nachricht').value = ``;
+        }
+
+        function clean_3() {
+            document.getElementById('gaestebuch').innerHTML = ``;
+        }
+    </script>
+    <!-- HIER endet dein JavaScript-Code -->
+
+
+    <!-- AUFGABE 1: Der Rezept-Anzeiger -->
+    <h2>1. Der Rezept-Anzeiger</h2>
+    <p>
+        1.1. Erstelle zwei Buttons mit den Aufschriften "Pfannkuchen" und "Spaghetti Carbonara".<br>
+        1.2. Schreibe eine JavaScript-Funktion `zeigePfannkuchen()`, die im Div mit der ID <code>rezept-anzeige</code>
+        ein einfaches Pfannkuchen-Rezept anzeigt.<br>
+        1.3. Schreibe eine zweite Funktion `zeigeSpaghetti()`, die das Rezept für Spaghetti anzeigt.<br>
+        1.4. Verknüpfe die Buttons so, dass beim Klick das jeweilige Rezept angezeigt wird. Der Inhalt des Divs soll
+        dabei immer komplett ersetzt werden.
+    </p>
+
+    <!-- Deine Buttons für Aufgabe 1 kommen hier hin -->
+
+    <button onclick="Pfannkuchen()">Pfannkuchen</button>
+    <button onclick="Apfelkuchen()">Apfelkuchen</button>
+    <button onclick="Bananenbrot()">Bananenbrot</button>
+    <button onclick="Tostbrot()">Tostbrot</button>
+    <button onclick="clean()">Lerren</button>
+    <div id="rezept-anzeige"></div>
+
+
+    <!-- AUFGABE 2: Die interaktive Einkaufsliste -->
+    <h2>2. Die interaktive Einkaufsliste</h2>
+    <p>
+        2.1. Erstelle drei Buttons für die Zutaten "Mehl", "Eier" und "Milch".<br>
+        2.2. Schreibe <b>eine einzige</b> JavaScript-Funktion namens `fuegeZutatHinzu(zutat)`. Diese Funktion soll eine
+        Zutat als Parameter entgegennehmen.<br>
+        2.3. Die Funktion soll die übergebene Zutat zum Div mit der ID <code>einkaufsliste</code> hinzufügen. Jede neue
+        Zutat soll in einer neuen Zeile erscheinen.<br>
+        2.4. Erstelle einen weiteren Button "Liste leeren". Dieser soll eine Funktion `leereListe()` aufrufen, die den
+        gesamten Inhalt der Einkaufsliste löscht.
+    </p>
+
+    <!-- Deine Buttons für Aufgabe 2 kommen hier hin -->
+    <button onclick="addfood('Milch')">Milch</button>
+    <button onclick="addfood('Salz')">Salz</button>
+    <button onclick="addfood('Zucker')">Zucker</button>
+    <button onclick="addfood('Mehl')">Mehl</button>
+
+    <button onclick="clean2()">clean</button>
+    <div id="einkaufsliste"></div>
+
+
+    <!-- AUFGABE 3: Der dynamische Benutzer-Avatar -->
+    <h2>3. Der dynamische Benutzer-Avatar</h2>
+    <p>
+        Am Anfang des Scripts ist bereits eine Variable <code>let benutzername = 'Gast';</code> deklariert.<br>
+        3.1. Erstelle einen Button "Avatar anzeigen". Bei Klick soll eine Funktion `zeigeAvatar()` aufgerufen
+        werden.<br>
+        3.2. Die Funktion <code>zeigeAvatar()</code> soll im Div mit der ID <code>avatar-container</code> ein neues Div
+        mit der Klasse <code>avatar</code> erstellen. In diesem Div soll der aktuelle Wert der Variable
+        <code>benutzername</code> angezeigt werden.<br>
+        3.3. Erstelle zwei weitere Buttons, "Alex" und "Maria". Bei Klick auf einen dieser Buttons soll der Wert der
+        Variable <code>benutzername</code> entsprechend geändert und der Avatar sofort aktualisiert werden.
+    </p>
+
+    <button onclick="zeigAvatar('Gast')">Gast</button>
+    <button onclick="zeigAvatar('Mert')"> Mert</button>
+    <button onclick="zeigAvatar('Martan')"> Martan</button>
+
+    <!-- Deine Buttons für Aufgabe 3 kommen hier hin -->
+
+    <div id="avatar-container"></div>
+
+
+    <!-- AUFGABE 4: Das Gästebuch -->
+    <h2>4. Das Gästebuch</h2>
+    <p>
+        4.1. Erstelle ein Text-Eingabefeld für einen Namen (gib ihm die ID <code>input-name</code>) und ein weiteres für
+        eine Nachricht (ID <code>input-nachricht</code>).<br>
+        4.2. Erstelle einen "Senden"-Button.<br>
+        4.3. Schreibe eine Funktion <code>eintragHinzufuegen()</code>, die durch den Button aufgerufen wird.<br>
+        4.4. Diese Funktion soll den Text aus beiden Eingabefeldern auslesen.<br>
+        4.5. Füge dem Div mit der ID <code>gaestebuch</code> einen neuen Eintrag hinzu. Der Eintrag soll so formatiert
+        sein: <code>&lt;b&gt;[Name]&lt;/b&gt; schrieb: &lt;i&gt;[Nachricht]&lt;/i&gt;&lt;br&gt;</code>.<br>
+        4.6. Sorge dafür, dass die Eingabefelder nach dem Senden automatisch geleert werden.<br>
+        4.7. (Bonus) Verhindere durch eine if-Abfrage, dass eine leere Nachricht gesendet werden kann.
+    </p>
+
+    <input id="name" placeholder="Gib dein Namen ein" type="text"><br>
+    <input id="nachricht" placeholder="Gib deine Nachricht ein" type="text"> <br>
+    <button onclick="senInput()">Senden</button>
+    <button onclick="clean_3()">leeren</button>
+    <!-- Deine Eingabefelder und dein Button für Aufgabe 4 kommen hier hin -->
+
+    <div id="gaestebuch"></div>
+
+</body>
+
+</html>

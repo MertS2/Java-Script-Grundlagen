@@ -98,8 +98,17 @@
         }
 
         function exercise9() {
-            let newfruit = document.getElementById('newfruit');
-        
+            let newfruit = document.getElementById('newfruit').value;
+            fruits.push(newfruit);
+            exercise10()
+        }
+
+        function exercise10() {
+            let list10 = document.getElementById('list10')
+
+            for (let i = 0; i < fruits.length; i++) {
+                list10.innerHTML += `<li> ${fruits[i]}</li>`;
+            }
         }
     </script>
 </head>

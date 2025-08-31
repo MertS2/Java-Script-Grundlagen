@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notitzblock</title>
+    <script src="./script.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./styles/standard.css">
+</head>
+
+<body onload="init()">
+    <main>
+        <section class="main_container">
+            <h1>Notitzblock</h1>
+
+            <input id="note_input" type="text" placeholder="Neue Notiz hinzufügen...">
+            <button class="button_add" onclick="addNote()">Hinzufügen</button>
+
+            <div class="input_container">
+                <h2>Notizen</h2>
+                <button onclick="openDialogTrach()">
+                    <img class="delet_img" src="./icon/geschaft.png" alt="Papierkorb">
+                </button>
+            </div>
+            <div class="notes" id="content"></div>
+        </section>
+    </main>
+
+    <dialog id="trach_dialog">
+        <h2>Papierkorb</h2>
+        <div id="trach_notes_list">
+        </div>
+        <button onclick="closeDialogTrach()">Schließen</button>
+    </dialog>
+</body>
+</html>

@@ -10,7 +10,7 @@
         body {
             padding: 100px 200px;
         }
-        
+
         p {
             margin-top: 64px;
         }
@@ -51,7 +51,7 @@
         }
 
         function exercise3() {
-            let list = document.getElementByid('list3');
+            let list = document.getElementById('list3');
             for (let i = 0; i < 11; i += 2) {
                 list.innerHTML += `<li>${i}</li>`;
             }
@@ -59,7 +59,7 @@
 
         function exercise4() {
             let list = document.getElementById('list4');
-            for (let i = 10; i > -1; i++) {
+            for (let i = 10; i > -1; i--) {
                 list.innerHTML += `<li>${i}</li>`;
             }
         }
@@ -67,13 +67,14 @@
         function exercise5() {
             let list = document.getElementById('list5');
             for (let i = 0; i < fruits.length; i++) {
-                list5.innerHTML = `<li>${fruits[i]}</li>`;
+                list.innerHTML += `<li>${fruits[i]}</li>`;
             }
         }
 
         function exercise6() {
             let list = document.getElementById('list6');
-            for (let i = fruits.length; i > -1; i--) {
+            for (let i = fruits.length - 1; i >= 0; i--) {
+
                 list.innerHTML += `<li>${fruits[i]}</li>`;
             }
         }
@@ -85,8 +86,8 @@
             }
         }
 
-        function exercise() {
-            let list = document.getElementById('list');
+        function exercise8() {
+            let list = document.getElementById('list8');
             for (let i = 0; i < fruits.length; i += 2) {
                 list.innerHTML += `<li>${amount[i]} ${fruits[i]}</li>`;
             }
@@ -95,6 +96,10 @@
         function exercise9() {
             let newFruit = document.getElementById('newfruit').value;
             fruits.push(newFruit);
+            exercise10()
+        }
+
+        function exercise10() {
 
             let list = document.getElementById('list10');
             list.innerHTML = ``;
@@ -103,8 +108,6 @@
                 list.innerHTML += `<li>${fruits[i]}</li>`;
             }
         }
-
-        function exercise9() {}
     </script>
 </head>
 
@@ -134,7 +137,8 @@
 
     </ul>
 
-    <p>4) Füge <code>&lt;li&gt;</code>-Elemente mit den Zahlen von 10 - 0 ein. Tipp: mit <code>i--</code> verringerst du den Wert von i um 1.</p>
+    <p>4) Füge <code>&lt;li&gt;</code>-Elemente mit den Zahlen von 10 - 0 ein. Tipp: mit <code>i--</code> verringerst du
+        den Wert von i um 1.</p>
     <ul id="list4">
 
     </ul>
@@ -173,7 +177,8 @@
     <input id="newfruit" value="Orange"> <button onclick="exercise9()">Hinzufügen</button>
 
 
-    <p>10) Füge in das Array <code>fruits</code> die Frucht aus dem Textfeld mit der ID <b>newfruit</b> hinzu zeige anschließend das gesamte Array in der liste <code>list10</code> an.</p>
+    <p>10) Füge in das Array <code>fruits</code> die Frucht aus dem Textfeld mit der ID <b>newfruit</b> hinzu zeige
+        anschließend das gesamte Array in der liste <code>list10</code> an.</p>
     <ul id="list10">
 
     </ul>
