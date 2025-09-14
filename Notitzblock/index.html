@@ -15,11 +15,13 @@
         <section class="main_container">
             <h1>Notitzblock</h1>
 
+            <input id="note_title_input" type="text" placeholder="Notiz Tittel hinzufügen...">
             <input id="note_input" type="text" placeholder="Neue Notiz hinzufügen...">
+
             <button class="button_add" onclick="addNote()">Hinzufügen</button>
 
             <div class="input_container">
-                <h2>Notizen</h2>
+                <h2>Papierkorb</h2>
                 <button onclick="openDialogTrach()">
                     <img class="delet_img" src="./icon/geschaft.png" alt="Papierkorb">
                 </button>
@@ -29,10 +31,12 @@
     </main>
 
     <dialog id="trach_dialog">
-        <h2>Papierkorb</h2>
-        <div id="trach_notes_list">
+        <div class="trach_dialog_contaner">
+            <h2>Papierkorb</h2>
+            <button class="closeBtn" onclick="closeDialogTrach()">Schließen</button>
         </div>
-        <button onclick="closeDialogTrach()">Schließen</button>
+        <div class="dialog_main_trach" id="trach_notes_list"></div>
     </dialog>
 </body>
+
 </html>
