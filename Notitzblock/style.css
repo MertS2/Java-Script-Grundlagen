@@ -5,11 +5,27 @@ h1 {
     text-decoration: underline;
 }
 
+h2 {
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 p {
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.notes_title {
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.notes_decpriton {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 main {
     display: flex;
@@ -52,28 +68,32 @@ input:focus {
 
 .delet_img {
     width: 40px;
-    height: 40px !important;
+    height: 40px;
 }
 
 .delet_img:hover {
     cursor: pointer;
 }
 
-.delet_btn {
-    width: 40px;
-    height: 40px;
+.div_btn {
+    display: flex;
+    gap: 100px;
 }
 
-.delet_btn:hover {
+.notes_btn {
+    width: 100px;
+    height: 50px;
+}
+
+
+.notes_btn:hover {
     cursor: pointer;
 }
 
 .input_container {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
 
@@ -88,8 +108,7 @@ input:focus {
     flex-direction: column;
 }
 
-.dialog_trach {
-    background-color: yellow;
+.dialog {
     display: block;
     position: fixed;
     top: 50%;
@@ -109,15 +128,36 @@ input:focus {
     display: flex;
     flex-direction: column;
     width: auto;
-    margin-top: 100px;
     background-color: lightgray;
     border-radius: 15px;
-    border: 1px solid black;
     box-sizing: border-box;
     padding: 50px;
+    margin-top: 10px;
     gap: 20px;
-    width: 600px;
-    height: 350px;
+    width: 1000px;
+    height: auto;
+}
+
+.notes_section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+
+.notes_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    padding: 15px;
+    width: 400px;
+    height: 400px;
+    border: 1px solid black;
+    text-align: center;
 }
 
 .closeBtn {
@@ -130,7 +170,7 @@ input:focus {
     cursor: pointer;
 }
 
-.trach_dialog_contaner {
+.dialog_contaner {
     display: flex;
     justify-content: space-around;
     align-items: center;

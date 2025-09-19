@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notitzblock</title>
+    <script src="./script/template.js"></script>
     <script src="./script.js"></script>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./styles/standard.css">
@@ -22,21 +23,39 @@
 
             <div class="input_container">
                 <h2>Papierkorb</h2>
-                <button onclick="openDialogTrach()">
+                <button class="notes_btn" onclick="openDialogTrach()">
                     <img class="delet_img" src="./icon/geschaft.png" alt="Papierkorb">
                 </button>
+
+                <h2>Archive</h2>
+                <button class="notes_btn" onclick="openDialogArchive()">
+                    <img class="delet_img" src="./icon/geschaft.png" alt="Archive">
+                </button>
             </div>
-            <div class="notes" id="content"></div>
+
+            <section class="notes">
+                <div class="notes_section" id="content"></div>
+            </section>
+
+
+            <dialog id="trach_dialog">
+                <div class="dialog_contaner">
+                    <h2>Papierkorb</h2>
+                    <button class="closeBtn" onclick="closeDialogTrach()">Schließen</button>
+                </div>
+                <div class="dialog_main_trach" id="trach_notes_list"></div>
+            </dialog>
+
+            <dialog id="archive_dialog">
+                <div class="dialog_contaner">
+                    <h2>Archive</h2>
+                    <button class="closeBtn" onclick="closeDialogArchive()">Schließen</button>
+                    </div>
+                <div class="dialog_main_archvie" id="archive_notes_list"></div>
+            </dialog>
         </section>
     </main>
 
-    <dialog id="trach_dialog">
-        <div class="trach_dialog_contaner">
-            <h2>Papierkorb</h2>
-            <button class="closeBtn" onclick="closeDialogTrach()">Schließen</button>
-        </div>
-        <div class="dialog_main_trach" id="trach_notes_list"></div>
-    </dialog>
 </body>
 
 </html>

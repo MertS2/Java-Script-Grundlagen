@@ -1,6 +1,10 @@
 let notes = ['UI überarbeiten', ' Reponsive Design überarbeiten',];
 let notesTitle = ['Task 1', 'Task 2',];
 
+let arhivhNotes = [];
+let arhivhNotesTitkles = [];
+
+
 let trachNotes = [];
 let trachNotTitkles = [];
 
@@ -12,14 +16,25 @@ function init() {
 function saveToLocalStorage() {
     localStorage.setItem("notes", JSON.stringify(notes));
     localStorage.setItem("notesTitle", JSON.stringify(notesTitle));
+
+    localStorage.setItem("arhivhNotes", JSON.stringify(arhivhNotes));
+    localStorage.setItem("arhivhNotesTitkles", JSON.stringify(arhivhNotesTitkles));
+
+
     localStorage.setItem("trachNotes", JSON.stringify(trachNotes));
     localStorage.setItem("trachNotTitkles", JSON.stringify(trachNotTitkles));
 }
 
 function getFromLocalStorage() {
     if (localStorage.getItem("notes") && localStorage.getItem("notesTitle") && localStorage.getItem("trachNotes") && localStorage.getItem("trachNotTitkles")) {
-        notes = JSCON.parse(localStorage.getItem("notes"));
+        notes = JSON.parse(localStorage.getItem("notes"));
         notesTitle = JSON.parse(localStorage.getItem("notesTitle"));
+
+        arhivhNotes = JSON.parse(localStorage.getItem("arhivhNotes"))
+        arhivhNotesTitkles = JSON.parse(localStorage.getItem("arhivhNotesTitkles"))
+
+
+
         trachNotes = JSON.parse(localStorage.getItem("trachNotes"))
         trachNotTitkles = JSON.parse(localStorage.getItem("trachNotTitkles"))
     }
@@ -34,22 +49,6 @@ function renderNotes() {
     for (let indexNote = 0; indexNote < notes.length; indexNote++) {
         contentRef.innerHTML += gehtNoteTemp(indexNote);
     }
-}
-
-function gehtNoteTemp(indexNote) {
-    return `
-    <p> Title: ${notesTitle[indexNote]} => ${notes[indexNote]} </p>
-    
-    <button class="delet_btn" onclick="deletetNotes(${indexNote})">X</button></p>`
-}
-
-function gehtTrachNoteTemp(indexTrachNote) {
-    return `
-    <dialog class="dialog_trach">   
-    <p> Title: ${trachNotTitkles[indexTrachNote]} => ${trachNotes[indexTrachNote]} </p>
-    <button class="delet_btn" onclick="deletetNotesComplet(${indexTrachNote})">X</button>
-    </dialog>
-    `
 }
 
 
@@ -69,7 +68,17 @@ function addNote() {
     noteInputRef.value = ``;
 }
 
-function deletetNotes(indexNote) {
+function achiveNotes(indexNote) {
+    let archivedNote = notes.splice(indexNote, 1)[0];
+    arhivhNotes.push(archivedNote);
+
+    let archivedTitle = notesTitle.splice(indexNote, 1)[0];
+    arhivhNotesTitkles.push(archivedTitle);
+    saveToLocalStorage()
+    renderNotes();
+}
+
+function trach_notes(indexNote) {
     let trachNot = notes.splice(indexNote, 1)[0];
     trachNotes.push(trachNot);
 
@@ -80,28 +89,63 @@ function deletetNotes(indexNote) {
     renderNotes();
 }
 
+function archiveToTrash(index) {
+    let arhivhNotes = arhivhNotes.splice(index, 1)[0];
+    let trashedTitle = arhivhNotesTitkles.splice(index, 1)[0];
+
+    arhivhNotes.push(arhivhNotes);
+    trachNotTitkles.push(arhivhNotesTitkles);
+
+    saveToLocalStorage();
+    openDialogArchive();
+}
+
 function deletetNotesComplet(indexTrachNote) {
     trachNotes.splice(indexTrachNote, 1);
-    openDialogTrach();
+    trachNotTitkles.splice(indexTrachNote, 1);
+
     saveToLocalStorage()
+    openDialogTrach();
 }
 
 
 function openDialogTrach() {
-    let dialog = document.getElementById('trach_dialog');
-    if (dialog) {
-        dialog.showModal();
+    let dialogTrach = document.getElementById('trach_dialog');
+    if (dialogTrach) {
+        dialogTrach.showModal();
 
-        let dialogRef = document.getElementById('trach_notes_list');
-        dialogRef.innerHTML = "";
+        let dialogTrachRef = document.getElementById('trach_notes_list');
+        dialogTrachRef.innerHTML = "";
 
         for (let i = 0; i < trachNotes.length; i++) {
-            dialogRef.innerHTML += ` 
+            dialogTrachRef.innerHTML += ` 
             <p> Title: ${trachNotTitkles[i]} => ${trachNotes[i]} </p>
             <button class="delet_btn" onclick="deletetNotesComplet(${i})">X</button></p>
             `
         }
-        dialog.classList.add('dialog_trach');
+        dialogTrach.classList.add('dialog');
+        saveToLocalStorage()
+
+    }
+}
+
+function openDialogArchive() {
+    let dialogAchive = document.getElementById('archive_dialog');
+    if (dialogAchive) {
+        dialogAchive.showModal();
+
+        let dialogAchiveRef = document.getElementById('archive_notes_list');
+        dialogAchiveRef.innerHTML = "";
+
+        for (let i = 0; i < trachNotes.length; i++) {
+            dialogAchiveRef.innerHTML += ` 
+            <p> Title: ${trachNotTitkles[i]} => ${trachNotes[i]} </p>
+            <button class="delet_btn" onclick="moveArchiveToTrash(${index})">X</button></p>
+            `
+        }
+        dialogAchive.classList.add('dialog');
+        saveToLocalStorage()
+
     }
 }
 
@@ -109,9 +153,17 @@ function closeDialogTrach() {
     let dialog = document.getElementById('trach_dialog');
     if (dialog) {
         dialog.close();
-        dialog.classList.remove('dialog_trach');
+        dialog.classList.remove('dialog');
     }
 }
 
+
+function closeDialogArchive() {
+    let dialog = document.getElementById('archive_dialog');
+    if (dialog) {
+        dialog.close();
+        dialog.classList.remove('dialog');
+    }
+}
 
 
