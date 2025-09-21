@@ -66,22 +66,22 @@ function addNote() {
     noteInputRef.value = ``;
 }
 
-function archivedNote(indexAchivedNote) {
-    let archivedNote = notes.splice(indexAchivedNote, 1)[0];
+function archivedNote(indexNote ) {
+    let archivedNote = notes.splice(indexNote , 1)[0];
     archivedNotes.push(archivedNote);
 
-    let archivedTitle = notesTitles.splice(indexAchivedNote, 1)[0];
+    let archivedTitle = notesTitles.splice(indexNote , 1)[0];
     archivedTitles.push(archivedTitle);
     saveToLocalStorage()
     renderNotes();
 }
 
 
-function trashNotee(indexTrash) {
-    let trashNote = notes.splice(indexTrash, 1)[0];
+function trashNote(indexNote) {
+    let trashNote = notes.splice(indexNote , 1)[0];
     trashNotes.push(trashNote);
 
-    let trashNoteTitle = notesTitles.splice(indexTrash, 1)[0];
+    let trashNoteTitle = notesTitles.splice(indexNote , 1)[0];
     trashNoteTitles.push(trashNoteTitle);
 
     saveToLocalStorage()
@@ -98,14 +98,14 @@ function deleteNoteComplete(indexNote) {
 
 
 function openDialogTrash() {
-    let dialogTrach = document.getElementById('trsh_dialog');
+    let dialogTrach = document.getElementById('trash_dialog');
     if (dialogTrach) {
         dialogTrach.showModal();
 
-        let dialogTrachRef = document.getElementById('trach_notes_list');
+        let dialogTrachRef = document.getElementById('trash_notes_list');
         dialogTrachRef.innerHTML = "";
 
-        for (let i = 0; i < trashNotes.length; i++) {
+        for (let i = 0; i < trashNote.length; i++) {
             dialogTrachRef.innerHTML += ` 
             <p> Headline: ${trashNoteTitles[i]} => ${trashNotes[i]} </p>
             <button class="delet_btn" onclick="deletetNotesComplet(${i})">X</button></p>
@@ -128,7 +128,7 @@ function openDialogArchived() {
         for (let i = 0; i < archivedNotes.length; i++) {
             dialogAchiveRef.innerHTML += ` 
             <p> Headline: ${archivedTitles[i]} => ${archivedNotes[i]} </p>
-            <button class="delet_btn" onclick="moveArchiveToTrash(${index})">X</button></p>
+            <button class="delet_btn" onclick="">X</button></p>
             `
         }
         dialogAchive.classList.add('dialog');
@@ -138,7 +138,7 @@ function openDialogArchived() {
 }
 
 function closeDialogTrach() {
-    let dialog = document.getElementById('trach_dialog');
+    let dialog = document.getElementById('trash_dialog');
     if (dialog) {
         dialog.close();
         dialog.classList.remove('dialog');

@@ -5,8 +5,8 @@ function gehtNoteTemp(indexNote) {
     <p class="notes_decpriton"> Beschreibung: ${notes[indexNote]} </p>
     
     <div class="div_btn">
-    <button class="notes_btn" onclick="trashNotee(${indexTrash})">Papierkorb</button>
-    <button class="notes_btn" onclick="archivedNote(${indexAchivedNote})">Archived</button>
+    <button class="notes_btn" onclick="trashNote(${indexNote})">Papierkorb</button>
+    <button class="notes_btn" onclick="archivedNote(${indexNote})">Archived</button>
     </div>
     </div>
     `
