@@ -5,12 +5,13 @@ let archivedNotes = [];
 let archivedTitles = [];
 
 
-let trashNotes  = [];
+let trashNotes = [];
 let trashNoteTitles = [];
 
 function init() {
     getFromLocalStorage();
     renderNotes();
+    escDialogClose()
 }
 
 function saveToLocalStorage() {
@@ -66,26 +67,39 @@ function addNote() {
     noteInputRef.value = ``;
 }
 
-function archivedNote(indexNote ) {
-    let archivedNote = notes.splice(indexNote , 1)[0];
-    archivedNotes.push(archivedNote);
+function trashNote(indexNote) {
+    let trashNote = notes.splice(indexNote, 1)[0];
+    trashNotes.push(trashNote);
 
-    let archivedTitle = notesTitles.splice(indexNote , 1)[0];
-    archivedTitles.push(archivedTitle);
+    let trashNoteTitle = notesTitles.splice(indexNote, 1)[0];
+    trashNoteTitles.push(trashNoteTitle);
+
     saveToLocalStorage()
     renderNotes();
 }
 
 
-function trashNote(indexNote) {
-    let trashNote = notes.splice(indexNote , 1)[0];
-    trashNotes.push(trashNote);
+function NoteToArchive(indexNote) {
+    let noteToArchive = notes.splice(indexNote, 1)[0];
+    archivedNotes.push(noteToArchive);
 
-    let trashNoteTitle = notesTitles.splice(indexNote , 1)[0];
-    trashNoteTitles.push(trashNoteTitle);
+    let notetitleToArchive = notesTitles.splice(indexNote, 1)[0];
+    archivedTitles.push(notetitleToArchive);
 
-    saveToLocalStorage()
+    saveToLocalStorage();
     renderNotes();
+}
+
+function achivedToNotes(indexNote) {
+    let archivedNote = archivedNotes.splice(indexNote, 1)[0];
+    notes.push(archivedNote);
+
+    let archivedNoteTitle = archivedTitles.splice(indexNote, 1)[0];
+    notesTitles.push(archivedNoteTitle);
+
+    saveToLocalStorage();
+    renderNotes();
+    openDialogArchived()
 }
 
 function deleteNoteComplete(indexNote) {
@@ -105,15 +119,14 @@ function openDialogTrash() {
         let dialogTrachRef = document.getElementById('trash_notes_list');
         dialogTrachRef.innerHTML = "";
 
-        for (let i = 0; i < trashNote.length; i++) {
+        for (let i = 0; i < trashNotes.length; i++) {
             dialogTrachRef.innerHTML += ` 
             <p> Headline: ${trashNoteTitles[i]} => ${trashNotes[i]} </p>
-            <button class="delet_btn" onclick="deletetNotesComplet(${i})">X</button></p>
+            <button class="actionButton" onclick="deleteNoteComplete(${i})">X</button>
             `
         }
         dialogTrach.classList.add('dialog');
         saveToLocalStorage()
-
     }
 }
 
@@ -128,7 +141,7 @@ function openDialogArchived() {
         for (let i = 0; i < archivedNotes.length; i++) {
             dialogAchiveRef.innerHTML += ` 
             <p> Headline: ${archivedTitles[i]} => ${archivedNotes[i]} </p>
-            <button class="delet_btn" onclick="">X</button></p>
+            <button class="actionButton" onclick="achivedToNotes(${i})">X</button>
             `
         }
         dialogAchive.classList.add('dialog');
@@ -137,21 +150,18 @@ function openDialogArchived() {
     }
 }
 
-function closeDialogTrach() {
-    let dialog = document.getElementById('trash_dialog');
+function closeDialog(dialogWindow) {
+    let dialog = document.getElementById(`${dialogWindow}_dialog`);
     if (dialog) {
         dialog.close();
         dialog.classList.remove('dialog');
     }
 }
 
-
-function closeDialogArchive() {
-    let dialog = document.getElementById('archive_dialog');
-    if (dialog) {
-        dialog.close();
-        dialog.classList.remove('dialog');
-    }
+function escDialogClose() {
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            closeDialog()
+        }
+    });
 }
-
-
