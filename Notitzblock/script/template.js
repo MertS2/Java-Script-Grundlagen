@@ -1,8 +1,8 @@
 function gehtNoteTemp(indexNote) {
     return `
     <div class="notes_container">
-    <p class="notes_title"> ${notesTitles[indexNote]} </p>
-    <p class="notes_decpriton"> ${notes[indexNote]} </p>
+    <p class="notes_title"> ${allNotes.notesTitles[indexNote]} </p>
+    <p class="notes_decpriton"> ${allNotes.notes[indexNote]} </p>
     
     <div class="div_btn">
     <button class="notes_btn" onclick="trashNote(${indexNote})">Papierkorb</button>
@@ -15,7 +15,7 @@ function gehtNoteTemp(indexNote) {
 function gehtAArchiveNoteTemp(indexAchivedNote) {
     return `
     <dialog class="dialog_trach">   
-    <p> ${archivedTitles[indexAchivedNote]}  ${archivedNotes[indexAchivedNote]} </p>
+    <p> ${allNotes.archivedTitles[indexAchivedNote]}  ${allNotes.archivedNotes[indexAchivedNote]} </p>
     <button class="actionButton" onclick="achivedToNotes(${indesNote})">X</button>
     </dialog>
     `
@@ -25,7 +25,7 @@ function gehtAArchiveNoteTemp(indexAchivedNote) {
 function gehtTrachNoteTemp(indexTrashNote) {
     return `
     <dialog class="dialog_trach">   
-    <p> ${trashNoteTitles[indexTrashNote]} ${trashNotes[indexTrashNote]} </p>
+    <p> ${allNotes.trashNoteTitles[indexTrashNote]} ${allNotes.trashNotes[indexTrashNote]} </p>
     <button class="actionButton" onclick="deleteNoteComplete(${indexTrashNote})">X</button>
 
     </dialog>

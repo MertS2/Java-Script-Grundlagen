@@ -1,12 +1,14 @@
-let notes = ['UI überarbeiten', ' Reponsive Design überarbeiten',];
-let notesTitles = ['Task 1', 'Task 2',];
+let allNotes = {
+    'notes': ['UI überarbeiten', ' Reponsive Design überarbeiten'],
+    'notesTitles': ['Task 1', 'Task 2'],
 
-let archivedNotes = [];
-let archivedTitles = [];
+    'archivedNotes': [],
+    'archivedTitles': [],
 
+    'trashNotes': [],
+    'trashNoteTitles': [],
+}
 
-let trashNotes = [];
-let trashNoteTitles = [];
 
 function init() {
     getFromLocalStorage();
@@ -43,7 +45,7 @@ function renderNotes() {
     let contentRef = document.getElementById('content')
     contentRef.innerHTML = "";
 
-    for (let indexNote = 0; indexNote < notes.length; indexNote++) {
+    for (let indexNote = 0; indexNote < allNotes.notes.length; indexNote++) {
         contentRef.innerHTML += gehtNoteTemp(indexNote);
     }
 }
@@ -66,11 +68,11 @@ function addNote() {
 }
 
 function trashNote(indexNote) {
-    let trashNote = notes.splice(indexNote, 1)[0];
-    trashNotes.push(trashNote);
+    let trashNote = allNotes.notes.splice(indexNote, 1)[0];
+    allNotes.trashNotes.push(trashNote);
 
-    let trashNoteTitle = notesTitles.splice(indexNote, 1)[0];
-    trashNoteTitles.push(trashNoteTitle);
+    let trashNoteTitle = allNotes.notesTitles.splice(indexNote, 1)[0];
+    allNotes.trashNoteTitles.push(trashNoteTitle);
 
     saveToLocalStorage()
     renderNotes();
@@ -78,22 +80,22 @@ function trashNote(indexNote) {
 
 
 function NoteToArchive(indexNote) {
-    let noteToArchive = notes.splice(indexNote, 1)[0];
-    archivedNotes.push(noteToArchive);
+    let noteToArchive = allNotes.notes.splice(indexNote, 1)[0];
+    allNotes.archivedNotes.push(noteToArchive);
 
-    let notetitleToArchive = notesTitles.splice(indexNote, 1)[0];
-    archivedTitles.push(notetitleToArchive);
+    let notetitleToArchive = allNotes.notesTitles.splice(indexNote, 1)[0];
+    allNotes.archivedTitles.push(notetitleToArchive);
 
     saveToLocalStorage();
     renderNotes();
 }
 
 function achivedToNotes(indexNote) {
-    let archivedNote = archivedNotes.splice(indexNote, 1)[0];
-    notes.push(archivedNote);
+    let archivedNote = allNotes.archivedNotes.splice(indexNote, 1)[0];
+    allNotes.notes.push(archivedNote);
 
-    let archivedNoteTitle = archivedTitles.splice(indexNote, 1)[0];
-    notesTitles.push(archivedNoteTitle);
+    let archivedNoteTitle = allNotes.archivedTitles.splice(indexNote, 1)[0];
+    allNotes.notesTitles.push(archivedNoteTitle);
 
     saveToLocalStorage();
     renderNotes();
@@ -101,8 +103,8 @@ function achivedToNotes(indexNote) {
 }
 
 function deleteNoteComplete(indexNote) {
-    trashNotes.splice(indexNote, 1);
-    trashNoteTitles.splice(indexNote, 1);
+    allNotes.trashNotes.splice(indexNote, 1);
+    allNotes.trashNoteTitles.splice(indexNote, 1);
 
     saveToLocalStorage()
     openDialogTrash();
@@ -117,9 +119,9 @@ function openDialogTrash() {
         let dialogTrachRef = document.getElementById('trash_notes_list');
         dialogTrachRef.innerHTML = "";
 
-        for (let i = 0; i < trashNotes.length; i++) {
+        for (let i = 0; i < allNotes.trashNotes.length; i++) {
             dialogTrachRef.innerHTML += ` 
-            <p> ${trashNoteTitles[i]}  ${trashNotes[i]} </p>
+            <p> ${allNotes.trashNoteTitles[i]}  ${allNotes.trashNotes[i]} </p>
             <button class="actionButton" onclick="deleteNoteComplete(${i})">X</button>
             `
         }
@@ -136,9 +138,9 @@ function openDialogArchived() {
         let dialogAchiveRef = document.getElementById('archive_notes_list');
         dialogAchiveRef.innerHTML = "";
 
-        for (let i = 0; i < archivedNotes.length; i++) {
+        for (let i = 0; i < allNotes.archivedNotes.length; i++) {
             dialogAchiveRef.innerHTML += ` 
-            <p> ${archivedTitles[i]}  ${archivedNotes[i]} </p>
+            <p> ${ allNotes.archivedTitles[i]}  ${allNotes.archivedNotes[i]} </p>
             <button class="actionButton" onclick="achivedToNotes(${i})">X</button>
             `
         }
