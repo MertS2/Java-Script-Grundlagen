@@ -34,8 +34,6 @@ function getFromLocalStorage() {
         archivedNotes = JSON.parse(localStorage.getItem("archivedNotes"))
         archivedTitles = JSON.parse(localStorage.getItem("archivedTitles"))
 
-
-
         trashNotes = JSON.parse(localStorage.getItem("trashNotes"))
         trashNoteTitles = JSON.parse(localStorage.getItem("trashNoteTitles"))
     }
@@ -121,7 +119,7 @@ function openDialogTrash() {
 
         for (let i = 0; i < trashNotes.length; i++) {
             dialogTrachRef.innerHTML += ` 
-            <p> Headline: ${trashNoteTitles[i]} => ${trashNotes[i]} </p>
+            <p> ${trashNoteTitles[i]}  ${trashNotes[i]} </p>
             <button class="actionButton" onclick="deleteNoteComplete(${i})">X</button>
             `
         }
@@ -140,7 +138,7 @@ function openDialogArchived() {
 
         for (let i = 0; i < archivedNotes.length; i++) {
             dialogAchiveRef.innerHTML += ` 
-            <p> Headline: ${archivedTitles[i]} => ${archivedNotes[i]} </p>
+            <p> ${archivedTitles[i]}  ${archivedNotes[i]} </p>
             <button class="actionButton" onclick="achivedToNotes(${i})">X</button>
             `
         }
@@ -161,7 +159,8 @@ function closeDialog(dialogWindow) {
 function escDialogClose() {
     document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") {
-            closeDialog()
+            closeDialog('trash')
+            closeDialog('archive')
         }
     });
 }
