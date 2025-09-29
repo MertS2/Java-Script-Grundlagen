@@ -17,15 +17,15 @@ function init() {
 }
 
 function saveToLocalStorage() {
-    localStorage.setItem("notes", JSON.stringify(notes));
-    localStorage.setItem("notesTitles", JSON.stringify(notesTitles));
+    localStorage.setItem("notes", JSON.stringify(allNotes.notes));
+    localStorage.setItem("notesTitles", JSON.stringify(allNotes.notesTitles));
 
-    localStorage.setItem("archivedNotes", JSON.stringify(archivedNotes));
-    localStorage.setItem("archivedTitles", JSON.stringify(archivedTitles));
+    localStorage.setItem("archivedNotes", JSON.stringify(allNotes.archivedNotes));
+    localStorage.setItem("archivedTitles", JSON.stringify(allNotes.archivedTitles));
 
 
-    localStorage.setItem("trashNotes", JSON.stringify(trashNotes));
-    localStorage.setItem("trashNoteTitles", JSON.stringify(trashNoteTitles));
+    localStorage.setItem("trashNotes", JSON.stringify(allNotes.trashNotes));
+    localStorage.setItem("trashNoteTitles", JSON.stringify(allNotes.trashNoteTitles));
 }
 
 function getFromLocalStorage() {
@@ -58,8 +58,8 @@ function addNote() {
     let noteTitleInput = notesTitleInputRef.value;
     let noteInput = noteInputRef.value;
 
-    notesTitles.push(noteTitleInput);
-    notes.push(noteInput);
+    allNotes.notesTitles.push(noteTitleInput);
+    allNotes.notes.push(noteInput);
 
     renderNotes();
     saveToLocalStorage()
