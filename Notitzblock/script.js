@@ -140,7 +140,7 @@ function openDialogArchived() {
 
         for (let i = 0; i < allNotes.archivedNotes.length; i++) {
             dialogAchiveRef.innerHTML += ` 
-            <p> ${ allNotes.archivedTitles[i]}  ${allNotes.archivedNotes[i]} </p>
+            <p> ${allNotes.archivedTitles[i]}  ${allNotes.archivedNotes[i]} </p>
             <button class="actionButton" onclick="achivedToNotes(${i})">X</button>
             `
         }
@@ -165,4 +165,18 @@ function escDialogClose() {
             closeDialog('archive')
         }
     });
+}
+
+
+
+
+function moveNote(indexNote, startKey, destinationKey) {
+    let note = allNotes[startKey].splice(indexNote, 1)[0];
+    allNotes[destinationKey].push(note)[0];
+
+    let noteTitle = allNotes[startKey + "Titles"].splice(indexNote, 1)[0];
+    allNotes[destinationKey + "Titles"].push(noteTitle)[0];
+
+    saveToLocalStorage()
+    renderNotes();
 }
