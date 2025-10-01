@@ -3,10 +3,10 @@ let allNotes = {
     'notesTitles': ['Task 1', 'Task 2'],
 
     'archivedNotes': [],
-    'archivedTitles': [],
+    'archivedNotesTitles': [],
 
     'trashNotes': [],
-    'trashNoteTitles': [],
+    'trashNotesTitles': [],
 }
 
 
@@ -16,28 +16,33 @@ function init() {
     escDialogClose()
 }
 
+function renderAllFunc() {
+    renderNotes();
+    saveToLocalStorage()
+}
+
 function saveToLocalStorage() {
     localStorage.setItem("notes", JSON.stringify(allNotes.notes));
     localStorage.setItem("notesTitles", JSON.stringify(allNotes.notesTitles));
 
     localStorage.setItem("archivedNotes", JSON.stringify(allNotes.archivedNotes));
-    localStorage.setItem("archivedTitles", JSON.stringify(allNotes.archivedTitles));
+    localStorage.setItem("archivedNotesTitles", JSON.stringify(allNotes.archivedNotesTitles));
 
 
     localStorage.setItem("trashNotes", JSON.stringify(allNotes.trashNotes));
-    localStorage.setItem("trashNoteTitles", JSON.stringify(allNotes.trashNoteTitles));
+    localStorage.setItem("trashNotesTitles", JSON.stringify(allNotes.trashNotesTitles));
 }
 
 function getFromLocalStorage() {
-    if (localStorage.getItem("notes") && localStorage.getItem("notesTitles") && localStorage.getItem("archivedNotes") && localStorage.getItem("archivedTitles") && localStorage.getItem("trashNotes") && localStorage.getItem("trashNoteTitles")) {
+    if (localStorage.getItem("notes") && localStorage.getItem("notesTitles") && localStorage.getItem("archivedNotes") && localStorage.getItem("archivedNotesTitles") && localStorage.getItem("trashNotes") && localStorage.getItem("trashNotesTitles")) {
         notes = JSON.parse(localStorage.getItem("notes"));
         notesTitles = JSON.parse(localStorage.getItem("notesTitles"));
 
         archivedNotes = JSON.parse(localStorage.getItem("archivedNotes"))
-        archivedTitles = JSON.parse(localStorage.getItem("archivedTitles"))
+        archivedTitles = JSON.parse(localStorage.getItem("archivedNotesTitles"))
 
         trashNotes = JSON.parse(localStorage.getItem("trashNotes"))
-        trashNoteTitles = JSON.parse(localStorage.getItem("trashNoteTitles"))
+        trashNotesTitles = JSON.parse(localStorage.getItem("trashNotesTitles"))
     }
 }
 
@@ -61,57 +66,22 @@ function addNote() {
     allNotes.notesTitles.push(noteTitleInput);
     allNotes.notes.push(noteInput);
 
-    renderNotes();
-    saveToLocalStorage()
+    renderAllFunc()
     notesTitleInputRef.value = ``;
     noteInputRef.value = ``;
 }
 
-function trashNote(indexNote) {
-    let trashNote = allNotes.notes.splice(indexNote, 1)[0];
-    allNotes.trashNotes.push(trashNote);
-
-    let trashNoteTitle = allNotes.notesTitles.splice(indexNote, 1)[0];
-    allNotes.trashNoteTitles.push(trashNoteTitle);
-
-    saveToLocalStorage()
-    renderNotes();
-}
-
-
-function NoteToArchive(indexNote) {
-    let noteToArchive = allNotes.notes.splice(indexNote, 1)[0];
-    allNotes.archivedNotes.push(noteToArchive);
-
-    let notetitleToArchive = allNotes.notesTitles.splice(indexNote, 1)[0];
-    allNotes.archivedTitles.push(notetitleToArchive);
-
-    saveToLocalStorage();
-    renderNotes();
-}
-
-function achivedToNotes(indexNote) {
-    let archivedNote = allNotes.archivedNotes.splice(indexNote, 1)[0];
-    allNotes.notes.push(archivedNote);
-
-    let archivedNoteTitle = allNotes.archivedTitles.splice(indexNote, 1)[0];
-    allNotes.notesTitles.push(archivedNoteTitle);
-
-    saveToLocalStorage();
-    renderNotes();
-    openDialogArchived()
-}
 
 function deleteNoteComplete(indexNote) {
     allNotes.trashNotes.splice(indexNote, 1);
-    allNotes.trashNoteTitles.splice(indexNote, 1);
+    allNotes.trashNotesTitles.splice(indexNote, 1);
 
-    saveToLocalStorage()
+    renderAllFunc()
     openDialogTrash();
 }
 
 
-function openDialogTrash() {
+function openDialogTrash(indexNote) {
     let dialogTrach = document.getElementById('trash_dialog');
     if (dialogTrach) {
         dialogTrach.showModal();
@@ -121,16 +91,19 @@ function openDialogTrash() {
 
         for (let i = 0; i < allNotes.trashNotes.length; i++) {
             dialogTrachRef.innerHTML += ` 
-            <p> ${allNotes.trashNoteTitles[i]}  ${allNotes.trashNotes[i]} </p>
+            <p> ${allNotes.trashNotesTitles[i]}  ${allNotes.trashNotes[i]} </p>
             <button class="actionButton" onclick="deleteNoteComplete(${i})">X</button>
+
+            <button class="actionButton" onclick="moveNote(${indexNote} , 'trashNotes' , 'archivedNotes')">Archived</button>
+            <button class="actionButton" onclick="moveNote(${indexNote} , 'trashNotes' , 'notes')">Notes</button>
             `
         }
         dialogTrach.classList.add('dialog');
-        saveToLocalStorage()
+        renderAllFunc()
     }
 }
 
-function openDialogArchived() {
+function openDialogArchived(indexNote) {
     let dialogAchive = document.getElementById('archive_dialog');
     if (dialogAchive) {
         dialogAchive.showModal();
@@ -140,13 +113,13 @@ function openDialogArchived() {
 
         for (let i = 0; i < allNotes.archivedNotes.length; i++) {
             dialogAchiveRef.innerHTML += ` 
-            <p> ${allNotes.archivedTitles[i]}  ${allNotes.archivedNotes[i]} </p>
-            <button class="actionButton" onclick="achivedToNotes(${i})">X</button>
+            <p> ${allNotes.archivedNotesTitles[i]}  ${allNotes.archivedNotes[i]} </p>
+            <button class="actionButton" onclick="moveNote(${indexNote} , 'archivedNotes' , 'trashNotes')">Papierkorb</button>
+            <button class="actionButton" onclick="moveNote(${indexNote} , 'archivedNotes' , 'notes')">Notes</button>
             `
         }
         dialogAchive.classList.add('dialog');
-        saveToLocalStorage()
-
+        renderAllFunc()
     }
 }
 
@@ -167,9 +140,6 @@ function escDialogClose() {
     });
 }
 
-
-
-
 function moveNote(indexNote, startKey, destinationKey) {
     let note = allNotes[startKey].splice(indexNote, 1)[0];
     allNotes[destinationKey].push(note)[0];
@@ -177,6 +147,5 @@ function moveNote(indexNote, startKey, destinationKey) {
     let noteTitle = allNotes[startKey + "Titles"].splice(indexNote, 1)[0];
     allNotes[destinationKey + "Titles"].push(noteTitle)[0];
 
-    saveToLocalStorage()
-    renderNotes();
+    renderAllFunc()
 }
