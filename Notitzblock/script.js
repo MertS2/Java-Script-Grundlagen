@@ -77,49 +77,56 @@ function deleteNoteComplete(indexNote) {
     allNotes.trashNotesTitles.splice(indexNote, 1);
 
     renderAllFunc()
-    openDialogTrash();
+    openDialogTrashRender();
 }
 
 
-function openDialogTrash(indexNote) {
+function openDialogTrash(i) {
     let dialogTrach = document.getElementById('trash_dialog');
     if (dialogTrach) {
         dialogTrach.showModal();
 
-        let dialogTrachRef = document.getElementById('trash_notes_list');
-        dialogTrachRef.innerHTML = "";
-
-        for (let i = 0; i < allNotes.trashNotes.length; i++) {
-            dialogTrachRef.innerHTML += ` 
-            <p> ${allNotes.trashNotesTitles[i]}  ${allNotes.trashNotes[i]} </p>
-            <button class="actionButton" onclick="deleteNoteComplete(${i})">X</button>
-
-            <button class="actionButton" onclick="moveNote(${indexNote} , 'trashNotes' , 'archivedNotes')">Archived</button>
-            <button class="actionButton" onclick="moveNote(${indexNote} , 'trashNotes' , 'notes')">Notes</button>
-            `
-        }
         dialogTrach.classList.add('dialog');
-        renderAllFunc()
+        saveToLocalStorage()
+        openDialogTrashRender()
     }
 }
 
-function openDialogArchived(indexNote) {
+function openDialogTrashRender() {
+    let dialogTrachRef = document.getElementById('trash_notes_list');
+    dialogTrachRef.innerHTML = "";
+
+    for (let i = 0; i < allNotes.trashNotes.length; i++) {
+        dialogTrachRef.innerHTML += ` 
+            <p> ${allNotes.trashNotesTitles[i]}  ${allNotes.trashNotes[i]} </p>
+            <button class="actionButton" onclick="deleteNoteComplete(${i})">X</button>
+
+            <button class="actionButton" onclick="moveNote(${i} , 'trashNotes' , 'archivedNotes')">Archived</button>
+            <button class="actionButton" onclick="moveNote(${i} , 'trashNotes' , 'notes')">Notes</button>
+        `
+    }
+}
+
+function openDialogArchived() {
     let dialogAchive = document.getElementById('archive_dialog');
     if (dialogAchive) {
         dialogAchive.showModal();
 
-        let dialogAchiveRef = document.getElementById('archive_notes_list');
-        dialogAchiveRef.innerHTML = "";
-
-        for (let i = 0; i < allNotes.archivedNotes.length; i++) {
-            dialogAchiveRef.innerHTML += ` 
-            <p> ${allNotes.archivedNotesTitles[i]}  ${allNotes.archivedNotes[i]} </p>
-            <button class="actionButton" onclick="moveNote(${indexNote} , 'archivedNotes' , 'trashNotes')">Papierkorb</button>
-            <button class="actionButton" onclick="moveNote(${indexNote} , 'archivedNotes' , 'notes')">Notes</button>
-            `
-        }
         dialogAchive.classList.add('dialog');
-        renderAllFunc()
+        saveToLocalStorage()
+    }
+}
+
+function openArchivRender() {
+    let dialogAchiveRef = document.getElementById('archive_notes_list');
+    dialogAchiveRef.innerHTML = "";
+
+    for (let i = 0; i < allNotes.archivedNotes.length; i++) {
+        dialogAchiveRef.innerHTML += ` 
+            <p> ${allNotes.archivedNotesTitles[i]}  ${allNotes.archivedNotes[i]} </p>
+            <button class="actionButton" onclick="moveNote(${i} , 'archivedNotes' , 'trashNotes')">Papierkorb</button>
+            <button class="actionButton" onclick="moveNote(${i} , 'archivedNotes' , 'notes')">Notes</button>
+        `
     }
 }
 
