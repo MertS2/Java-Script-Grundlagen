@@ -114,6 +114,7 @@ function openDialogArchived() {
 
         dialogAchive.classList.add('dialog');
         saveToLocalStorage()
+        openArchivRender()
     }
 }
 
