@@ -16,7 +16,7 @@ function init() {
     escDialogClose()
 }
 
-function renderAllFunc() {
+function renderAllFunction() {
     renderNotes();
     saveToLocalStorage()
 }
@@ -39,7 +39,7 @@ function getFromLocalStorage() {
         notesTitles = JSON.parse(localStorage.getItem("notesTitles"));
 
         archivedNotes = JSON.parse(localStorage.getItem("archivedNotes"))
-        archivedTitles = JSON.parse(localStorage.getItem("archivedNotesTitles"))
+        archivedNotesTitles = JSON.parse(localStorage.getItem("archivedNotesTitles"))
 
         trashNotes = JSON.parse(localStorage.getItem("trashNotes"))
         trashNotesTitles = JSON.parse(localStorage.getItem("trashNotesTitles"))
@@ -66,7 +66,7 @@ function addNote() {
     allNotes.notesTitles.push(noteTitleInput);
     allNotes.notes.push(noteInput);
 
-    renderAllFunc()
+    renderAllFunction()
     notesTitleInputRef.value = ``;
     noteInputRef.value = ``;
 }
@@ -76,7 +76,7 @@ function deleteNoteComplete(indexNote) {
     allNotes.trashNotes.splice(indexNote, 1);
     allNotes.trashNotesTitles.splice(indexNote, 1);
 
-    renderAllFunc()
+    renderAllFunction()
     openDialogTrashRender();
 }
 
@@ -145,7 +145,7 @@ function escDialogClose() {
             closeDialog('trash')
             closeDialog('archive')
         }
-    });
+    }); 
 }
 
 function moveNote(indexNote, startKey, destinationKey) {
@@ -155,5 +155,7 @@ function moveNote(indexNote, startKey, destinationKey) {
     let noteTitle = allNotes[startKey + "Titles"].splice(indexNote, 1)[0];
     allNotes[destinationKey + "Titles"].push(noteTitle)[0];
 
-    renderAllFunc()
+    renderAllFunction()
+    openDialogTrashRender()
+    openArchivRender()
 }
