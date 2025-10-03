@@ -81,12 +81,14 @@ function deleteNoteComplete(indexNote) {
 }
 
 
-function openDialogTrash(i) {
+function openDialogTrash() {
     let dialogTrach = document.getElementById('trash_dialog');
     if (dialogTrach) {
         dialogTrach.showModal();
 
         dialogTrach.classList.add('dialog');
+        document.body.classList.add('hidden')
+
         saveToLocalStorage()
         openDialogTrashRender()
     }
@@ -113,6 +115,7 @@ function openDialogArchived() {
         dialogAchive.showModal();
 
         dialogAchive.classList.add('dialog');
+        document.body.classList.add('hidden')
         saveToLocalStorage()
         openArchivRender()
     }
@@ -136,6 +139,8 @@ function closeDialog(dialogWindow) {
     if (dialog) {
         dialog.close();
         dialog.classList.remove('dialog');
+        document.body.classList.remove('hidden');
+
     }
 }
 
