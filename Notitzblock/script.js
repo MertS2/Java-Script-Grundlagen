@@ -13,12 +13,12 @@ let allNotes = {
 function init() {
     getFromLocalStorage();
     renderNotes();
-    escDialogClose()
+    escDialogClose();
 }
 
 function renderAllFunction() {
     renderNotes();
-    saveToLocalStorage()
+    saveToLocalStorage();
 }
 
 function saveToLocalStorage() {
@@ -35,19 +35,19 @@ function saveToLocalStorage() {
 
 function getFromLocalStorage() {
     if (localStorage.getItem("notes") && localStorage.getItem("notesTitles") && localStorage.getItem("archivedNotes") && localStorage.getItem("archivedNotesTitles") && localStorage.getItem("trashNotes") && localStorage.getItem("trashNotesTitles")) {
-        notes = JSON.parse(localStorage.getItem("notes"));
-        notesTitles = JSON.parse(localStorage.getItem("notesTitles"));
+        allNotes.notes = JSON.parse(localStorage.getItem("notes"));
+        allNotes.notesTitles = JSON.parse(localStorage.getItem("notesTitles"));
 
-        archivedNotes = JSON.parse(localStorage.getItem("archivedNotes"))
-        archivedNotesTitles = JSON.parse(localStorage.getItem("archivedNotesTitles"))
+        allNotes.archivedNotes = JSON.parse(localStorage.getItem("archivedNotes"));
+        allNotes.archivedNotesTitles = JSON.parse(localStorage.getItem("archivedNotesTitles"));
 
-        trashNotes = JSON.parse(localStorage.getItem("trashNotes"))
-        trashNotesTitles = JSON.parse(localStorage.getItem("trashNotesTitles"))
+        allNotes.trashNotes = JSON.parse(localStorage.getItem("trashNotes"));
+        allNotes.trashNotesTitles = JSON.parse(localStorage.getItem("trashNotesTitles"));
     }
 }
 
 function renderNotes() {
-    let contentRef = document.getElementById('content')
+    let contentRef = document.getElementById('content');
     contentRef.innerHTML = "";
 
     for (let indexNote = 0; indexNote < allNotes.notes.length; indexNote++) {
@@ -66,9 +66,10 @@ function addNote() {
     allNotes.notesTitles.push(noteTitleInput);
     allNotes.notes.push(noteInput);
 
-    renderAllFunction()
+   
     notesTitleInputRef.value = ``;
     noteInputRef.value = ``;
+    renderAllFunction();
 }
 
 
@@ -76,8 +77,8 @@ function deleteNoteComplete(indexNote) {
     allNotes.trashNotes.splice(indexNote, 1);
     allNotes.trashNotesTitles.splice(indexNote, 1);
 
-    renderAllFunction()
-    openDialogTrashRender();
+    renderAllFunction();
+    dialogRender(dialogWindow, startKey);
 }
 
 
@@ -87,25 +88,10 @@ function openDialogTrash() {
         dialogTrach.showModal();
 
         dialogTrach.classList.add('dialog');
-        document.body.classList.add('hidden')
+        document.body.classList.add('hidden');
 
-        saveToLocalStorage()
-        openDialogTrashRender()
-    }
-}
-
-function openDialogTrashRender() {
-    let dialogTrachRef = document.getElementById('trash_notes_list');
-    dialogTrachRef.innerHTML = "";
-
-    for (let i = 0; i < allNotes.trashNotes.length; i++) {
-        dialogTrachRef.innerHTML += ` 
-            <p> ${allNotes.trashNotesTitles[i]}  ${allNotes.trashNotes[i]} </p>
-            <button class="actionButton" onclick="deleteNoteComplete(${i})">X</button>
-
-            <button class="actionButton" onclick="moveNote(${i} , 'trashNotes' , 'archivedNotes')">Archived</button>
-            <button class="actionButton" onclick="moveNote(${i} , 'trashNotes' , 'notes')">Notes</button>
-        `
+    saveToLocalStorage();
+    dialogRender('trash', 'trashNotes');
     }
 }
 
@@ -115,24 +101,13 @@ function openDialogArchived() {
         dialogAchive.showModal();
 
         dialogAchive.classList.add('dialog');
-        document.body.classList.add('hidden')
+        document.body.classList.add('hidden');
         saveToLocalStorage()
-        openArchivRender()
+        dialogRender('archive', 'archivedNotes');
     }
 }
 
-function openArchivRender() {
-    let dialogAchiveRef = document.getElementById('archive_notes_list');
-    dialogAchiveRef.innerHTML = "";
 
-    for (let i = 0; i < allNotes.archivedNotes.length; i++) {
-        dialogAchiveRef.innerHTML += ` 
-            <p> ${allNotes.archivedNotesTitles[i]}  ${allNotes.archivedNotes[i]} </p>
-            <button class="actionButton" onclick="moveNote(${i} , 'archivedNotes' , 'trashNotes')">Papierkorb</button>
-            <button class="actionButton" onclick="moveNote(${i} , 'archivedNotes' , 'notes')">Notes</button>
-        `
-    }
-}
 
 function closeDialog(dialogWindow) {
     let dialog = document.getElementById(`${dialogWindow}_dialog`);
@@ -147,8 +122,8 @@ function closeDialog(dialogWindow) {
 function escDialogClose() {
     document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") {
-            closeDialog('trash')
-            closeDialog('archive')
+            closeDialog('trash');
+            closeDialog('archive');
         }
     }); 
 }
@@ -160,7 +135,34 @@ function moveNote(indexNote, startKey, destinationKey) {
     let noteTitle = allNotes[startKey + "Titles"].splice(indexNote, 1)[0];
     allNotes[destinationKey + "Titles"].push(noteTitle)[0];
 
-    renderAllFunction()
-    openDialogTrashRender()
-    openArchivRender()
+    renderAllFunction();
 }
+
+function dialogRender(dialogWindow, startKey) {
+    let dialog =  document.getElementById(`${dialogWindow}_dialog`);
+    if(dialog) {
+    dialog.innerHTML = ""
+    }
+
+    for (let i = 0; i < allNotes[startKey].length; i++) {
+        dialog.innerHTML += ` 
+        <p> ${allNotes[startKey + 'Titles'][i]} ${allNotes[startKey][i]} </p>
+        `
+            if(startKey === 'trashNotes') {
+            dialog.innerHTML += ` 
+            <button class="actionButton" onclick="deleteNoteComplete(${i})">Komplett Löschen</button>
+            <button class="actionButton" onclick="moveNote(${i}, '${startKey}', 'archivedNotes')">Archivieren</button>
+            <button class="actionButton" onclick="moveNote(${i}, '${startKey}', 'notes')">Zurück zu Notes</button> `
+            }
+
+            if(startKey === 'archivedNotes') {
+            dialog.innerHTML += ` 
+            <button class="actionButton" onclick="moveNote(${i}, '${startKey}', 'trashNotes')">Papierkorb</button>
+            <button class="actionButton" onclick="moveNote(${i}, '${startKey}', 'notes')">Zurück zu Notes</button>
+        `
+        }      
+    }
+}
+    
+
+
