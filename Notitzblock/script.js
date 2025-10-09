@@ -66,7 +66,7 @@ function addNote() {
     allNotes.notesTitles.push(noteTitleInput);
     allNotes.notes.push(noteInput);
 
-   
+
     notesTitleInputRef.value = ``;
     noteInputRef.value = ``;
     renderAllFunction();
@@ -78,7 +78,7 @@ function deleteNoteComplete(indexNote) {
     allNotes.trashNotesTitles.splice(indexNote, 1);
 
     renderAllFunction();
-    dialogRender(dialogWindow, startKey);
+    dialogRender('trash', 'trashNotes');
 }
 
 
@@ -90,8 +90,8 @@ function openDialogTrash() {
         dialogTrach.classList.add('dialog');
         document.body.classList.add('hidden');
 
-    saveToLocalStorage();
-    dialogRender('trash', 'trashNotes');
+        saveToLocalStorage();
+        dialogRender('trash', 'trashNotes');
     }
 }
 
@@ -125,7 +125,7 @@ function escDialogClose() {
             closeDialog('trash');
             closeDialog('archive');
         }
-    }); 
+    });
 }
 
 function moveNote(indexNote, startKey, destinationKey) {
@@ -134,35 +134,45 @@ function moveNote(indexNote, startKey, destinationKey) {
 
     let noteTitle = allNotes[startKey + "Titles"].splice(indexNote, 1)[0];
     allNotes[destinationKey + "Titles"].push(noteTitle)[0];
-
     renderAllFunction();
 }
 
 function dialogRender(dialogWindow, startKey) {
-    let dialog =  document.getElementById(`${dialogWindow}_dialog`);
-    if(dialog) {
-    dialog.innerHTML = ""
+    let dialog = document.getElementById(`${dialogWindow}_dialog`);
+    if (dialog) {
+        dialog.innerHTML = ""
     }
+
+    dialog.innerHTML += `
+    <div class="dialog_contaner">
+    <h2>${dialogWindow}</h2>
+    <button class="closeBtn" onclick="closeDialog('${dialogWindow}')">Schließen</button>
+    </div>`
 
     for (let i = 0; i < allNotes[startKey].length; i++) {
         dialog.innerHTML += ` 
         <p> ${allNotes[startKey + 'Titles'][i]} ${allNotes[startKey][i]} </p>
         `
-            if(startKey === 'trashNotes') {
-            dialog.innerHTML += ` 
+        if (startKey === 'trashNotes') {
+            dialog.innerHTML += `
+            <div class= "dialog_btn_container" > 
             <button class="actionButton" onclick="deleteNoteComplete(${i})">Komplett Löschen</button>
             <button class="actionButton" onclick="moveNote(${i}, '${startKey}', 'archivedNotes')">Archivieren</button>
-            <button class="actionButton" onclick="moveNote(${i}, '${startKey}', 'notes')">Zurück zu Notes</button> `
-            }
+            <button class="actionButton" onclick="moveNote(${i}, '${startKey}', 'notes')">Zurück zu Notes</button> 
+            </div>`
+        }
 
-            if(startKey === 'archivedNotes') {
-            dialog.innerHTML += ` 
+        if (startKey === 'archivedNotes') {
+            dialog.innerHTML += `
+            <div class = "dialog_btn_container"> 
             <button class="actionButton" onclick="moveNote(${i}, '${startKey}', 'trashNotes')">Papierkorb</button>
             <button class="actionButton" onclick="moveNote(${i}, '${startKey}', 'notes')">Zurück zu Notes</button>
-        `
-        }      
+        </div>`
+        }
+        renderNotes()
     }
 }
-    
+
+
 
 
