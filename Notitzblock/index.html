@@ -24,12 +24,12 @@
 
             <div class="input_container">
                 <h2>Papierkorb</h2>
-                <button class="notes_btn" onclick="openDialogTrash()">
+                <button class="notes_btn" onclick="openDialog('trash')">
                     <img class="delet_img" src="./icon/geschaft.png" alt="Papierkorb">
                 </button>
 
                 <h2>Archive</h2>
-                <button class="notes_btn" onclick="openDialogArchived()">
+                <button class="notes_btn" onclick="openDialog('archive')">
                     <img class="delet_img" src="./icon/icons8-ordner-_archiv_-100.png" alt="Archive">
                 </button>
             </div>
@@ -37,10 +37,8 @@
             <section class="notes">
                 <div class="notes_section" id="content"></div>
             </section>
-
-
-            <dialog id="trash_dialog"></dialog>
-            <dialog id="archive_dialog"></dialog>
+            
+            <dialog id="dialog"></dialog>
         </section>
     </main>
 </body>

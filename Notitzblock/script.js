@@ -34,17 +34,23 @@ function saveToLocalStorage() {
 }
 
 function getFromLocalStorage() {
-    if (localStorage.getItem("notes") && localStorage.getItem("notesTitles") && localStorage.getItem("archivedNotes") && localStorage.getItem("archivedNotesTitles") && localStorage.getItem("trashNotes") && localStorage.getItem("trashNotesTitles")) {
+
+    if (localStorage.getItem("notes") && localStorage.getItem("notesTitles")) {
         allNotes.notes = JSON.parse(localStorage.getItem("notes"));
         allNotes.notesTitles = JSON.parse(localStorage.getItem("notesTitles"));
+    }
 
+    if (localStorage.getItem("archivedNotes") && localStorage.getItem("archivedNotesTitles")) {
         allNotes.archivedNotes = JSON.parse(localStorage.getItem("archivedNotes"));
         allNotes.archivedNotesTitles = JSON.parse(localStorage.getItem("archivedNotesTitles"));
+    }
 
+    if( localStorage.getItem("trashNotes") && localStorage.getItem("trashNotesTitles")) {
         allNotes.trashNotes = JSON.parse(localStorage.getItem("trashNotes"));
         allNotes.trashNotesTitles = JSON.parse(localStorage.getItem("trashNotesTitles"));
     }
 }
+
 
 function renderNotes() {
     let contentRef = document.getElementById('content');
@@ -78,101 +84,74 @@ function deleteNoteComplete(indexNote) {
     allNotes.trashNotesTitles.splice(indexNote, 1);
 
     renderAllFunction();
-    dialogRender('trash', 'trashNotes');
+    dialogRenderNotes('trashNotes', 'Papierkorb'); 
 }
 
-
-function openDialogTrash() {
-    let dialogTrach = document.getElementById('trash_dialog');
-    if (dialogTrach) {
-        dialogTrach.showModal();
-
-        dialogTrach.classList.add('dialog');
+function openDialog(dialogcContainer){
+    let dialog = document.getElementById('dialog');
+    if (dialog) {
+        dialog.showModal();
+        dialog.classList.add('dialog');
         document.body.classList.add('hidden');
-
-        saveToLocalStorage();
-        dialogRender('trash', 'trashNotes');
     }
+    checkDialog(dialogcContainer);
 }
 
-function openDialogArchived() {
-    let dialogAchive = document.getElementById('archive_dialog');
-    if (dialogAchive) {
-        dialogAchive.showModal();
-
-        dialogAchive.classList.add('dialog');
-        document.body.classList.add('hidden');
-        saveToLocalStorage()
-        dialogRender('archive', 'archivedNotes');
-    }
-}
-
-
-
-function closeDialog(dialogWindow) {
-    let dialog = document.getElementById(`${dialogWindow}_dialog`);
+function closeDialog() {
+    let dialog = document.getElementById('dialog');
     if (dialog) {
         dialog.close();
         dialog.classList.remove('dialog');
         document.body.classList.remove('hidden');
-
     }
 }
 
 function escDialogClose() {
     document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") {
-            closeDialog('trash');
-            closeDialog('archive');
+            closeDialog()
         }
     });
 }
 
-function moveNote(indexNote, startKey, destinationKey) {
+function moveNote(indexNote, startKey, destinationKey, title) {
     let note = allNotes[startKey].splice(indexNote, 1)[0];
     allNotes[destinationKey].push(note)[0];
 
     let noteTitle = allNotes[startKey + "Titles"].splice(indexNote, 1)[0];
     allNotes[destinationKey + "Titles"].push(noteTitle)[0];
+
     renderAllFunction();
+    dialogRenderNotes(startKey, title);    
 }
 
-function dialogRender(dialogWindow, startKey) {
-    let dialog = document.getElementById(`${dialogWindow}_dialog`);
+function dialogRender(title) {
+    let dialog = document.getElementById('dialog');
     if (dialog) {
         dialog.innerHTML = ""
     }
-
-    dialog.innerHTML += `
-    <div class="dialog_contaner">
-    <h2>${dialogWindow}</h2>
-    <button class="closeBtn" onclick="closeDialog('${dialogWindow}')">Schließen</button>
-    </div>`
-
-    for (let i = 0; i < allNotes[startKey].length; i++) {
-        dialog.innerHTML += ` 
-        <p> ${allNotes[startKey + 'Titles'][i]} ${allNotes[startKey][i]} </p>
-        `
-        if (startKey === 'trashNotes') {
-            dialog.innerHTML += `
-            <div class= "dialog_btn_container" > 
-            <button class="actionButton" onclick="deleteNoteComplete(${i})">Komplett Löschen</button>
-            <button class="actionButton" onclick="moveNote(${i}, '${startKey}', 'archivedNotes')">Archivieren</button>
-            <button class="actionButton" onclick="moveNote(${i}, '${startKey}', 'notes')">Zurück zu Notes</button> 
-            </div>`
-        }
-
-        if (startKey === 'archivedNotes') {
-            dialog.innerHTML += `
-            <div class = "dialog_btn_container"> 
-            <button class="actionButton" onclick="moveNote(${i}, '${startKey}', 'trashNotes')">Papierkorb</button>
-            <button class="actionButton" onclick="moveNote(${i}, '${startKey}', 'notes')">Zurück zu Notes</button>
-        </div>`
-        }
-        renderNotes()
-    }
+    dialogRenderTemp(title);
 }
 
 
+function dialogRenderNotes(startKey, title) {
+    let dialog = document.getElementById('dialog');
+    if (dialog) {
+        dialog.innerHTML = ""
+    }
+    dialogRenderTemp(title);
+
+    for (let i = 0; i < allNotes[startKey].length; i++) {
+    dialogRenderNotesTemp(startKey, i);
+    }
+}
+
+function checkDialog(dialogcContainer) {
+    if(dialogcContainer === "trash") {
+        dialogRenderNotes('trashNotes', 'Papierkorb'); 
+    } else if(dialogcContainer === "archive") {
+        dialogRenderNotes('archivedNotes', 'Archiv'); 
+    }
+}
 
 
