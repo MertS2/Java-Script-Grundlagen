@@ -155,3 +155,20 @@ function checkDialog(dialogcContainer) {
 }
 
 
+
+function error(event) {
+    event.preventDefault()
+
+   let erorr = document.getElementById('formError');
+   let inputnote = document.getElementById('note_input');
+
+    if (inputnote.value =="") {
+        erorr.classList.remove('d_none');
+    } else {
+        erorr.classList.add('d_none');
+        addNote();
+    }
+}
+
+
+

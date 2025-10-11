@@ -116,7 +116,11 @@
     justify-content: center;
     gap: 20px;
     padding: 20px;
+    min-width: 1440px;
+    max-width: 500px;
+    margin: 0 auto;
 }
+
 
 .notes_container {
     display: flex;
@@ -142,6 +146,12 @@
     background-color: rgb(0, 216, 216);
 }
 
+.note_form {
+  display: flex;
+  flex-direction: column; 
+  gap: 10px; 
+}
+
 .dialog_contaner {
     display: flex;
     justify-content: space-around;
@@ -162,6 +172,21 @@
     background-color: rgb(0, 216, 216);
 }
 
+.formError {
+    color: #D32F2F;
+    text-align: center;    
+    margin: 30px 0px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px 0px;
+    width: 500px;
+}
+
+.note_form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .hidden {
     overflow-y: hidden;
