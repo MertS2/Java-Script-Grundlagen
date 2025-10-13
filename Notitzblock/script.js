@@ -45,7 +45,7 @@ function getFromLocalStorage() {
         allNotes.archivedNotesTitles = JSON.parse(localStorage.getItem("archivedNotesTitles"));
     }
 
-    if( localStorage.getItem("trashNotes") && localStorage.getItem("trashNotesTitles")) {
+    if (localStorage.getItem("trashNotes") && localStorage.getItem("trashNotesTitles")) {
         allNotes.trashNotes = JSON.parse(localStorage.getItem("trashNotes"));
         allNotes.trashNotesTitles = JSON.parse(localStorage.getItem("trashNotesTitles"));
     }
@@ -84,10 +84,10 @@ function deleteNoteComplete(indexNote) {
     allNotes.trashNotesTitles.splice(indexNote, 1);
 
     renderAllFunction();
-    dialogRenderNotes('trashNotes', 'Papierkorb'); 
+    dialogRenderNotes('trashNotes', 'Papierkorb');
 }
 
-function openDialog(dialogcContainer){
+function openDialog(dialogcContainer) {
     let dialog = document.getElementById('dialog');
     if (dialog) {
         dialog.showModal();
@@ -122,7 +122,7 @@ function moveNote(indexNote, startKey, destinationKey, title) {
     allNotes[destinationKey + "Titles"].push(noteTitle)[0];
 
     renderAllFunction();
-    dialogRenderNotes(startKey, title);    
+    dialogRenderNotes(startKey, title);
 }
 
 function dialogRender(title) {
@@ -142,15 +142,15 @@ function dialogRenderNotes(startKey, title) {
     dialogRenderTemp(title);
 
     for (let i = 0; i < allNotes[startKey].length; i++) {
-    dialogRenderNotesTemp(startKey, i);
+        dialogRenderNotesTemp(startKey, i);
     }
 }
 
 function checkDialog(dialogcContainer) {
-    if(dialogcContainer === "trash") {
-        dialogRenderNotes('trashNotes', 'Papierkorb'); 
-    } else if(dialogcContainer === "archive") {
-        dialogRenderNotes('archivedNotes', 'Archiv'); 
+    if (dialogcContainer === "trash") {
+        dialogRenderNotes('trashNotes', 'Papierkorb');
+    } else if (dialogcContainer === "archive") {
+        dialogRenderNotes('archivedNotes', 'Archiv');
     }
 }
 
@@ -159,10 +159,10 @@ function checkDialog(dialogcContainer) {
 function error(event) {
     event.preventDefault()
 
-   let erorr = document.getElementById('formError');
-   let inputnote = document.getElementById('note_input');
+    let erorr = document.getElementById('formError');
+    let inputnote = document.getElementById('note_input');
 
-    if (inputnote.value =="") {
+    if (inputnote.value == "") {
         erorr.classList.remove('d_none');
     } else {
         erorr.classList.add('d_none');
