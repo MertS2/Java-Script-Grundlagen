@@ -1,0 +1,117 @@
+.header_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eee;
+    padding: 10px 20px;
+    height: 120px;
+}
+
+
+
+
+.nav_links {
+    margin: 5px 10px;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.nav_links:hover {
+    background-color: lightgray;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.main_container {
+    display: flex;
+    box-shadow: 0px 1px 5px rgba(3, 7, 18, 0.07),
+        0px 5px 21px rgba(3, 7, 18, 0.15),
+        0px 12px 48px rgba(3, 7, 18, 0.22),
+        0px 20px 86px rgba(3, 7, 18, 0.30),
+        0px 32px 134px rgba(3, 7, 18, 0.37);
+}
+
+.main_container_left {
+    flex: 1;
+    background-color: lightgray;
+}
+
+.main_container_right {
+    flex: 1;
+    background-color: lightgray;
+}
+
+.main_content {
+    flex: 2;
+    /* Nehtm doppelt so viel Platz als container left and right.  */
+    background-color: white;
+    padding: 20px;
+    margin: 60px;
+}
+
+.footer_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eee;
+    height: 100px;
+
+    position: relative;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+
+    box-shadow: 0px 1px 5px rgba(3, 7, 18, 0.07),
+        0px 5px 21px rgba(3, 7, 18, 0.15),
+        0px 12px 48px rgba(3, 7, 18, 0.22),
+        0px 20px 86px rgba(3, 7, 18, 0.30),
+        0px 32px 134px rgba(3, 7, 18, 0.37);
+}
+
+.books_container {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: flex-end;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 20px 50px;
+    margin-bottom: 100px;
+    gap: 50px;
+    height: 500px;
+    position: relative;
+}
+
+.div_line {
+    border-bottom: 3px solid black;
+    margin: 50px;
+    width: 780px;
+    bottom: 150px;
+    left: 0;
+    position: absolute;
+}
+
+.img_likde {
+    width: 70px;
+    height: 70px;
+}
+
+.img_book {
+    width: auto;
+    height: 250px;
+}
+
+
+.inputField {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer_contaienr_innen {
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 15px;
+}
