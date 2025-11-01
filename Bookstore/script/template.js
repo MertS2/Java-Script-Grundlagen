@@ -22,11 +22,12 @@ function bookTemplate(path, path2, path3, path4, path5, path6, i) {
             <label id="name" name="name" for="text">Name:</label>
             <input type="text" placeholder="Dein Name.......">
   
-            <label for="kommentar">Kommentar:</label><br>
+            <label for="kommentar">Kommentar:</label>
             <textarea id="kommentar" name="kommentar" placeholder="Dein Kommentar......."></textarea>
         </div>
-
         <div class="div_line"></div>
+
+        
                                             `
 }
 

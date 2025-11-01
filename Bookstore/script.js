@@ -8,7 +8,6 @@ function render() {
     console.log(comentsContent)
 
     mainContent.innerHTML = "";
-    comentsContent.innerHTML = "";
 
     for (let i = 0; i < books.length; i++) {
         mainContent.innerHTML += bookTemplate(books[i].name, books[i].author, books[i].likes, books[i].publishedYear, books[i].price, books[i].genre, i);
