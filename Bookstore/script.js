@@ -18,3 +18,15 @@ function render() {
         }
     }
 }
+
+
+
+function liked() {
+
+    for (let index = 0; index < books.liked.length.length; index++) {
+
+        if( == true){
+            
+        }
+    }
+}
