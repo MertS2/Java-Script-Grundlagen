@@ -115,3 +115,13 @@
     border-radius: 20px;
     padding: 15px;
 }
+
+.heart_img {
+    width: 60px;
+    height: auto;
+}
+
+.heart_img:hover {
+    cursor: pointer;
+    color: red;
+}

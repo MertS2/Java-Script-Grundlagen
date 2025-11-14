@@ -11,7 +11,7 @@ function bookTemplate(path, path2, path3, path4, path5, path6, i) {
             <p> Booklikes:  ${path3} </p>
             <h3> You liked? </h3>
             <button onclick="liked(${i})">
-                <img src="./icon/Download.svg" alt="">
+                <img class="heart_img" src="./icon/heart.png" alt="">
             </button>
         </div>
         <div>
@@ -26,6 +26,7 @@ function bookTemplate(path, path2, path3, path4, path5, path6, i) {
             <textarea id="kommentar" name="kommentar" placeholder="Dein Kommentar......."></textarea>
         </div>
         <div class="div_line"></div>
+            <div id="coments_${i}"></div>
 
         
                                             `
